@@ -1,7 +1,7 @@
 .button{
     
     -fx-background-insets:3.0;
-    -fx-background-radius: 5.0;
+    -fx-background-radius: 20;
     -fx-background-color:linear-gradient(to right top,#FDBB2D,#D2691E);
     -fx-text-fill:white;
     -fx-font-size:24;
@@ -12,11 +12,11 @@
 
 .button:hover{
 	
-     -fx-background-color:linear-gradient(to right top,#FDBB2D,#3A1C71);
+     -fx-background-color:linear-gradient(to right top,#FDBB2D,#8B4513);
     -fx-text-fill:white;
- 
-    -fx-background-insets: -0.1, 2.0;
-    -fx-font-size:30;
+ -fx-background-radius: 20;
+     -fx-background-insets: -0.1, 2.0;
+    -fx-font-size:25;
 }
 
 
