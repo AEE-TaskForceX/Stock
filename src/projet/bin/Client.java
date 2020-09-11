@@ -1,4 +1,4 @@
-package com_client;
+package projet.bin;
 
 public class Client {
 	
