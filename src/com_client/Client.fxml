@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #996633;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com_client.Client">
+   <children>
+      <TextField fx:id="idclient" alignment="CENTER" layoutX="548.0" layoutY="146.0" prefHeight="38.0" prefWidth="209.0" promptText="ID " style="-fx-background-color: transparent; -fx-border-color: #fbdcb5; -fx-border-width: 0px 0px 3px 0PX;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="nomtxt" alignment="CENTER" layoutX="548.0" layoutY="195.0" prefHeight="38.0" prefWidth="209.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #fbdcb5; -fx-border-width: 0px 0px 3px 0PX;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPrenom" alignment="CENTER" layoutX="549.0" layoutY="248.0" prefHeight="38.0" prefWidth="209.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-border-color: #fbdcb5; -fx-border-width: 0px 0px 3px 0PX;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtadresse" alignment="CENTER" layoutX="549.0" layoutY="294.0" prefHeight="38.0" prefWidth="209.0" promptText="Adresse" style="-fx-background-color: transparent; -fx-border-color: #fbdcb5; -fx-border-width: 0px 0px 3px 0PX;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="idtxt" alignment="CENTER" layoutX="549.0" layoutY="46.0" prefHeight="38.0" prefWidth="209.0" promptText="Rechercher Par ID " style="-fx-background-color: transparent; -fx-border-color: #fbdcb5; -fx-border-width: 0px 0px 3px 0PX;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <FontAwesomeIcon fill="#fbdcb5" glyphName="MALE" layoutX="600.0" layoutY="145.0" size="5em">
+         <effect>
+            <DropShadow />
+         </effect>
+      </FontAwesomeIcon>
+      <FontAwesomeIcon fill="#fbdcb5" glyphName="FEMALE" layoutX="674.0" layoutY="145.0" size="5em">
+         <effect>
+            <DropShadow />
+         </effect>
+      </FontAwesomeIcon>
+      <FontAwesomeIcon fx:id="searchIcon" fill="#fbdcb5" glyphName="SEARCH" layoutX="768.0" layoutY="82.0" onMouseClicked="#rechercher" size="2em">
+         <effect>
+            <DropShadow />
+         </effect>
+      </FontAwesomeIcon>
+      <Button fx:id="btnAjouter" layoutX="7.0" layoutY="433.0" mnemonicParsing="false" onAction="#insertdata" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #fbdcb5; -fx-background-radius: 30px;" text="Ajouter" textFill="#996633">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSupp" layoutX="167.0" layoutY="432.0" mnemonicParsing="false" onAction="#delete" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #fbdcb5; -fx-background-radius: 30px;" text="Supprimer" textFill="#996633">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnModifier" layoutX="327.0" layoutY="433.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #fbdcb5; -fx-background-radius: 30px;" text="Modifier" textFill="#996633">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAfficher" layoutX="488.0" layoutY="433.0" mnemonicParsing="false" onAction="#viewAbonnee" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #fbdcb5; -fx-background-radius: 30px;" text="Afficher" textFill="#996633">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnVider" layoutX="643.0" layoutY="432.0" mnemonicParsing="false" onAction="#vider" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #fbdcb5; -fx-background-radius: 30px;" text="Vider Les Cases" textFill="#996633">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="table" layoutX="9.0" layoutY="76.0" prefHeight="344.0" prefWidth="514.0" style="-fx-background-color: #fbdcb5; -fx-border-color: #fbdcb5; -fx-background-radius: 30px;" stylesheets="@../../../Biblio1/src/com_livres/Livre.css">
+         <columns>
+            <TableColumn fx:id="idcolumn" prefWidth="68.0" style="-fx-background-color: #fbdcb5;" text="ID" />
+            <TableColumn fx:id="nomcolumn" prefWidth="79.0" text="NOM" />
+            <TableColumn fx:id="prenomcolumn" prefWidth="84.0" text="PRENOM" />
+            <TableColumn fx:id="adressecolumn" prefWidth="123.0" text="ADRESSE" />
+            <TableColumn fx:id="telecolumn" prefWidth="74.0" text="TELEPHONE" />
+            <TableColumn fx:id="emailcolumn" prefWidth="75.0" text="EMAIL" />
+         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+      <TextField fx:id="txttele" alignment="CENTER" layoutX="549.0" layoutY="338.0" prefHeight="38.0" prefWidth="209.0" promptText="Telephone" style="-fx-background-color: transparent; -fx-border-color: #fbdcb5; -fx-border-width: 0px 0px 3px 0PX;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtemail" alignment="CENTER" layoutX="549.0" layoutY="376.0" prefHeight="38.0" prefWidth="209.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #fbdcb5; -fx-border-width: 0px 0px 3px 0PX;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

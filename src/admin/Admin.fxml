@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="103.0" layoutY="45.0" prefHeight="519.0" prefWidth="606.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="47.0">
+         <children>
+            <AnchorPane layoutX="27.0" layoutY="19.0" prefHeight="468.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right top,#3A1C71,#FDBB2D); -fx-background-radius: 1em;" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="19.0">
+               <children>
+                  <Label layoutX="36.0" layoutY="23.0" text="DS" textFill="#e4e4e3">
+                     <font>
+                        <Font name="Century Gothic" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="106.0" text="Stock Manager" textFill="#e4e4e3">
+                     <font>
+                        <Font name="Century Gothic" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="63.0" fitWidth="60.0" layoutX="127.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/storage+icon-1320195879915469160_256.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="exit" layoutX="568.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="66.0" layoutY="222.0" mnemonicParsing="false" prefHeight="122.0" prefWidth="218.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonA.css" text="COMPTE" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="321.0" layoutY="222.0" mnemonicParsing="false" prefHeight="122.0" prefWidth="218.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonA.css" text="VENDEURS" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <FontAwesomeIcon fill="#eee4e4" glyphName="SIGN_OUT" layoutX="36.0" layoutY="431.0" size="5em" />
+               </children>
+               <effect>
+                  <DropShadow height="0.0" radius="21.7975" spread="0.28" width="89.19" />
+               </effect>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

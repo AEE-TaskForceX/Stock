@@ -1,0 +1,21 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.text-field{
+    
+    -fx-background-insets:3.0;
+    -fx-background-radius: 5.0;
+    -fx-prompt-text-fill:#8A2BE2;
+    -fx-text-fill:#8A2BE2;
+    -fx-font-size:13;
+   -fx-font-family:"Century Gothic";
+	-fx-border-color:#8A2BE2;
+}
+
+
+.text-field:focused{
+	 -fx-effect: dropshadow( three-pass-box, orange , 10.0, 0.0,0.0,0.0);
+     -fx-border-color:linear-gradient(to right top,#3A1C71,#FDBB2D);
+    -fx-text-fill:linear-gradient(to right top,#3A1C71,#FDBB2D);
+    -fx-prompt-text-fill:linear-gradient(to right top,#3A1C71,#FDBB2D);
+    -fx-background-insets: -0.1, 2.0;
+    -fx-font-size:14.0;
+}
