@@ -18,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import projet.bin.Client;
 
 import java.io.IOException;
 import java.net.URL;
