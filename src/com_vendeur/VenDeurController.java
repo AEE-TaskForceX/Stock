@@ -1,24 +1,4 @@
-package com_client;
-
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import projet.bin.Client;
+package com_vendeur;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,77 +10,81 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+import com_client.ClientController;
 import com_connection.ConnectionDB;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import projet.bin.Client;
+import projet.bin.Vendeur;
 import javafx.scene.control.TableView;
 
 import javafx.scene.control.TableColumn;
 
-public class ClientController  implements Initializable {
-	@FXML
-	private TextField idclient;
+public class VenDeurController implements Initializable {
 	@FXML
 	private TextField nomtxt;
 	@FXML
 	private TextField txtPrenom;
 	@FXML
-	private TextField txtadresse;
-	@FXML
-	private TextField idtxt;
-	@FXML
-	private FontAwesomeIcon searchIcon;
-	@FXML
-	private Button btnAjouter;
-	@FXML
-	private Button btnSupp;
-	@FXML
-	private Button btnModifier;
-	@FXML
-	private Button btnAfficher;
-	@FXML
-	private Button btnVider;
-	@FXML
-	private TableView<Client> table;
-	public ObservableList<Client> data = FXCollections.observableArrayList();
-	@FXML
-	private TableColumn <Client, String> idcolumn;
-	@FXML
-	private TableColumn<Client, String> nomcolumn;
-	@FXML
-	private TableColumn<Client, String> prenomcolumn;
-	@FXML
-	private TableColumn<Client, String> adressecolumn;
-	@FXML
-	private TableColumn<Client,  String> telecolumn;
-	@FXML
-	private TableColumn<Client, String> emailcolumn;
+	private TextField txtmdp;
 	@FXML
 	private TextField txttele;
 	@FXML
-	private TextField txtemail;
-
+	private TextField txtidlog;
+	@FXML
+	private Label exit;
+	@FXML
+	private TableView<Vendeur> table;
+	public ObservableList<Vendeur> data = FXCollections.observableArrayList();
+	@FXML
+	private TableColumn <Vendeur, String> idcolumn;
+	@FXML
+	private TableColumn<Vendeur, String> nomcolumn;
+	@FXML
+	private TableColumn<Vendeur, String> prenomcolumn;
+	@FXML
+	private TableColumn<Vendeur, String> idlogcolumn;
+	@FXML
+	private TableColumn<Vendeur, String> telecolumn;
+	@FXML
+	private TableColumn<Vendeur, String> mdpcolumn;
 	@FXML
 	private TextField rechercher;
-		
+
+	// Event Listener on FontAwesomeIcon.onMouseClicked
 /*--------------------------------------------------AJOUTER----------------------------------------------------------------------------------*/	    
 
 	
-    public static int Ajouter(Client cl)
+    public static int Ajouter(Vendeur cl)
     {
     	Connection conn = ConnectionDB.conDB();
     	int rs = 0;
     	try {
     		
-    		String sql = "insert into client(id_client , nom , prenom , adresse , telephone , email ) values(?,?,?,?,?,?)";
+    		String sql = "insert into client(Nom_Vendeur , Prenom_Vendeur , Tel_Vendeur , loginidv , mdpv ) values(?,?,?,?,?)";
     		PreparedStatement stm = conn.prepareStatement(sql);
     		
     		stm.setString(1, cl.getNom());
     		stm.setString(2, cl.getPrenom());
-    		stm.setString(3, cl.getAdresse());
-    		stm.setString(4, cl.getTelephone());
-    		stm.setString(5, cl.getEmail());
+    		stm.setString(3, cl.getTel());
+    		stm.setString(4, cl.getLoginid());
+    		stm.setString(5, cl.getMdp());
     		
     		
     		
@@ -122,19 +106,19 @@ public class ClientController  implements Initializable {
     {
     	String NOM = nomtxt.getText();
     	String PRENOM = txtPrenom.getText();
-    	String ADDRESSE = txtadresse.getText();
+    	String MDP = txtmdp.getText();
     	String TELE = txttele.getText();
-    	String EMAIL = txtemail.getText();
+    	String IDLOG = txtidlog.getText();
     	
     	
-    	Client cl = new Client();
+    	Vendeur cl = new Vendeur();
     	
     	
     	cl.setNom(NOM);
     	cl.setPrenom(PRENOM);
-    	cl.setAdresse(ADDRESSE);
-    	cl.setTelephone(TELE);
-    	cl.setEmail(EMAIL);
+    	cl.setMdp(MDP);
+    	cl.setTel(TELE);
+    	cl.setLoginid(IDLOG);
     	
     	
     	
@@ -144,18 +128,18 @@ public class ClientController  implements Initializable {
     	if (etat > 0) {
     	
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Ajouter Client");
+    	alert.setTitle("Ajouter Vendeur");
     	alert.setHeaderText("Information");
-    	alert.setContentText("Client bien ajouté");
+    	alert.setContentText("Vendeur bien ajouté");
     	alert.showAndWait();
     	
               }
     	else
     	{
     		Alert alert = new Alert(AlertType.ERROR);
-	    	alert.setTitle("Ajouter Client");
+	    	alert.setTitle("Vendeur Client");
 	    	alert.setHeaderText("Information");
-	    	alert.setContentText("Client Non ajouté");
+	    	alert.setContentText("Vendeur Non ajouté");
 	    	alert.showAndWait();	
     
     	}
@@ -175,13 +159,13 @@ public class ClientController  implements Initializable {
 		try {
 			
     		Connection conn = ConnectionDB.conDB();
-    		String sql = "SELECT * FROM `client`" ;
+    		String sql = "SELECT * FROM `vendeur`" ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
     		
     		while (rs.next())
     		{
-    			data.add(new Client(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ) );
+    			data.add(new Vendeur(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ) );
     			
     		}
     		conn.close();
@@ -190,12 +174,12 @@ public class ClientController  implements Initializable {
 			// TODO: handle exception
 		}
     	
-		idcolumn.setCellValueFactory(new PropertyValueFactory<Client, String>("id_client"));
-    	nomcolumn.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
-    	prenomcolumn.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));
-    	adressecolumn.setCellValueFactory(new PropertyValueFactory<Client, String>("adresse"));
-    	telecolumn.setCellValueFactory(new PropertyValueFactory<Client, String>("telephone"));
-    	emailcolumn.setCellValueFactory(new PropertyValueFactory<Client, String>("email"));
+		idcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("id"));
+    	nomcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("nom"));
+    	prenomcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("prenom"));
+    	idlogcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("loginid"));
+    	telecolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("tel"));
+    	mdpcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("mdp"));
     	
     	table.setItems(data);	
 	}
@@ -204,20 +188,20 @@ public class ClientController  implements Initializable {
 	
 /*--------------------------------------------------MODIFIER----------------------------------------------------------------------------------*/	    
     
-    public static int modifier(Client cl,String idd)
+    public static int modifier(Vendeur cl,String idd)
 	{
 		Connection conn = ConnectionDB.conDB();
     	int d = 0;
     	try {
     		
-    		String sql = "update client set  nom = ? , prenom= ?  , adresse = ? , telephone = ? , email = ? where id_client = ?  ";
+    		String sql = "update vendeur set  Nom_Vendeur = ? , Prenom_Vendeur= ?  , Tel_Vendeur = ? , loginidv = ? , mdpv = ? where Id_Vendeur = ?  ";
     		PreparedStatement stm = conn.prepareStatement(sql);
     		
     		stm.setString(1, cl.getNom());
     		stm.setString(2, cl.getPrenom());
-    		stm.setString(3, cl.getAdresse());
-    		stm.setString(4, cl.getTelephone());
-    		stm.setString(5, cl.getEmail());
+    		stm.setString(3, cl.getTel());
+    		stm.setString(4, cl.getLoginid());
+    		stm.setString(5, cl.getMdp());
     		stm.setString(5, idd);
     		
     		
@@ -242,41 +226,41 @@ public class ClientController  implements Initializable {
     	
     	String NOM = nomtxt.getText();
     	String PRENOM = txtPrenom.getText();
-    	String ADRESSE = txtadresse.getText();
+    	String MDP = txtmdp.getText();
     	String TELE = txttele.getText();
-    	String EMAIL = txtemail.getText();
+    	String IDLOG = txtidlog.getText();
     	
     	
-    	Client cl = new Client();
+    	Vendeur cl = new Vendeur();
     	
     	
     	cl.setNom(NOM);
     	cl.setPrenom(PRENOM);
-    	cl.setAdresse(ADRESSE);
-    	cl.setTelephone(TELE);
-    	cl.setEmail(EMAIL);
+    	cl.setMdp(MDP);
+    	cl.setTel(TELE);
+    	cl.setLoginid(IDLOG);
     	
     	
-    	 Client selected =table.getSelectionModel().getSelectedItem();
-	        String idd = selected.getId_client();
+    	 Vendeur selected =table.getSelectionModel().getSelectedItem();
+	        String idd = selected.getId();
     	int etat = modifier(cl,idd);
     	
     	
     	if (etat > 0) {
     	
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Modifier Client");
+    	alert.setTitle("Modifier Vendeur");
     	alert.setHeaderText("Information");
-    	alert.setContentText("Client bien Modifié");
+    	alert.setContentText("Vendeur bien Modifié");
     	alert.showAndWait();
     	
               }
     	else
     	{
     		Alert alert = new Alert(AlertType.ERROR);
-	    	alert.setTitle("Modifier Client");
+	    	alert.setTitle("Modifier Vendeur");
 	    	alert.setHeaderText("Information");
-	    	alert.setContentText("Client Non Modifié");
+	    	alert.setContentText("Vendeur Non Modifié");
 	    	alert.showAndWait();	
     
     	}
@@ -297,7 +281,7 @@ public class ClientController  implements Initializable {
 		
 		try {
 			
-			String sql = "delete from client where id_client = ? ";
+			String sql = "delete from vendeur where Id_Vendeur = ? ";
 			PreparedStatement stm = conn.prepareStatement(sql);
 			stm.setString(1, id);
 			d = stm.executeUpdate();
@@ -318,8 +302,8 @@ public class ClientController  implements Initializable {
     
     public void delete (ActionEvent event)
 	{
-    	Client selected =table.getSelectionModel().getSelectedItem();
-        String idd = selected.getId_client();
+    	Vendeur selected =table.getSelectionModel().getSelectedItem();
+        String idd = selected.getId();
         table.getItems().removeAll(selected);
 		int etat = supp(idd);
 		
@@ -327,18 +311,18 @@ public class ClientController  implements Initializable {
         {
     	
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Supprimer Abonnee");
+    	alert.setTitle("Supprimer Vendeur");
     	alert.setHeaderText("Information");
-    	alert.setContentText("Abonnee bien Supprimé");
+    	alert.setContentText("Vendeur bien Supprimé");
     	alert.showAndWait();
     	
               }
     	else
     	{
     		Alert alert = new Alert(AlertType.ERROR);
-	    	alert.setTitle("Supprimer Abonnee");
+	    	alert.setTitle("Supprimer Vendeur");
 	    	alert.setHeaderText("Information");
-	    	alert.setContentText("Abonnee Non Supprimé");
+	    	alert.setContentText("Vendeur Non Supprimé");
 	    	alert.showAndWait();	
     
     	}
@@ -360,9 +344,9 @@ public class ClientController  implements Initializable {
     		
 	    	nomtxt.clear();
 	    	txtPrenom.clear();
-	    	txtadresse.clear();
+	    	txtidlog.clear();
 	    	txttele.clear();
-	    	txtemail.clear();
+	    	txtmdp.clear();
 	    	
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -380,13 +364,13 @@ public class ClientController  implements Initializable {
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
-				Client l =table.getItems().get(table.getSelectionModel().getSelectedIndex());
+				Vendeur l =table.getItems().get(table.getSelectionModel().getSelectedIndex());
 			//	id.setText(l.getId());
 				nomtxt.setText(l.getNom());
 				txtPrenom.setText(l.getPrenom());
-				txtadresse.setText(l.getAdresse());
-				txttele.setText(l.getTelephone());
-				txtemail.setText(l.getEmail());
+				txtidlog.setText(l.getLoginid());
+				txttele.setText(l.getTel());
+				txtmdp.setText(l.getMdp());
 			
 			}
 			
@@ -404,7 +388,7 @@ public void initialize(URL location, ResourceBundle resources) {
 @FXML
 public void back(MouseEvent event) throws IOException {
 	// TODO Autogenerated
-	Parent homePage = FXMLLoader.load(getClass().getResource("/vendeur/Vendeur.fxml"));
+	Parent homePage = FXMLLoader.load(getClass().getResource("/admin/Admin.fxml"));
     Scene homepageScene = new Scene(homePage);
     Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     appStage.setScene(homepageScene);
@@ -417,14 +401,14 @@ private void loadDataDB() {
 	data.clear();
 	try {
 		Connection conn = ConnectionDB.conDB();
-		PreparedStatement pst=conn.prepareStatement("Select * from client");
+		PreparedStatement pst=conn.prepareStatement("Select * from vendeur");
 		ResultSet rs=pst.executeQuery();
 		while(rs.next()) {
-			data.add(new Client(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+			data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
 		}
 	}
 	catch(SQLException ex){
-		Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null,ex);
+		Logger.getLogger(VenDeurController.class.getName()).log(Level.SEVERE, null,ex);
 	}
 	table.setItems(data);
 }
@@ -436,17 +420,17 @@ private void search() {
 		}
 		else {
 			data.clear();
-			String sql= "Select * from client where id_client LIKE '%"+rechercher.getText()+"%' " + "UNION Select * from client where nom LIKE '%"+rechercher.getText()+"%' "+ "UNION Select * from client where prenom LIKE '%"+rechercher.getText()+"%' "+ "UNION Select * from client where adresse LIKE '%"+rechercher.getText()+"%' "+ "UNION Select * from client where email LIKE '%"+rechercher.getText()+"%' ";
+			String sql= "Select * from vendeur where Id_Vendeur LIKE '%"+rechercher.getText()+"%' " + "UNION Select * from vendeur where Nom_Vendeur LIKE '%"+rechercher.getText()+"%' "+ "UNION Select * from vendeur where Prenom_Vendeur LIKE '%"+rechercher.getText()+"%' "+ "UNION Select * from vendeur where loginidv LIKE '%"+rechercher.getText()+"%' "+ "UNION Select * from vendeur where Tel_Vendeur LIKE '%"+rechercher.getText()+"%' ";
 			try {
 				Connection conn = ConnectionDB.conDB();
 				PreparedStatement pst=conn.prepareStatement(sql);
 				ResultSet rs=pst.executeQuery();
 				while(rs.next()) {
-					data.add(new Client(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+					data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
 				}
 				table.setItems(data);
 			}catch(SQLException ex) {
-				Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null,ex);
+				Logger.getLogger(VenDeurController.class.getName()).log(Level.SEVERE, null,ex);
 			}
 		}
 				

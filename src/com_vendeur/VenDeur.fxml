@@ -9,14 +9,13 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="795.0" prefWidth="912.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="795.0" prefWidth="912.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com_vendeur.VenDeurController">
    <children>
       <AnchorPane layoutX="40.0" layoutY="43.0" prefHeight="722.0" prefWidth="832.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="43.0">
          <children>
             <AnchorPane layoutX="47.0" layoutY="394.0" maxWidth="738.0" prefHeight="281.0" prefWidth="738.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
                <children>
-                  <Button layoutX="290.0" layoutY="207.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Modifier" textFill="WHITE">
+                  <Button layoutX="290.0" layoutY="207.0" mnemonicParsing="false" onAction="#update" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Modifier" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -24,7 +23,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="521.0" layoutY="207.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Supprimer" textFill="WHITE">
+                  <Button layoutX="521.0" layoutY="207.0" mnemonicParsing="false" onAction="#delete" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Supprimer" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -32,7 +31,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="56.0" layoutY="207.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Ajouter" textFill="WHITE">
+                  <Button layoutX="56.0" layoutY="207.0" mnemonicParsing="false" onAction="#insertdata" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Ajouter" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -50,22 +49,22 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtadresse" layoutX="516.0" layoutY="60.0" prefHeight="46.0" prefWidth="169.0" promptText="Numero de téléphone" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="txttele" layoutX="516.0" layoutY="60.0" prefHeight="46.0" prefWidth="169.0" promptText="Numero de téléphone" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txttele" layoutX="170.0" layoutY="118.0" prefHeight="46.0" prefWidth="169.0" promptText="Identifiant login" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="txtidlog" layoutX="170.0" layoutY="118.0" prefHeight="46.0" prefWidth="169.0" promptText="Identifiant login" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtemail" layoutX="399.0" layoutY="118.0" prefHeight="46.0" prefWidth="169.0" promptText="Mot de passe" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="txtmdp" layoutX="399.0" layoutY="118.0" prefHeight="46.0" prefWidth="169.0" promptText="Mot de passe" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="664.0" layoutY="162.0" size="2em" />
+                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="664.0" layoutY="162.0" onMouseClicked="#vider" size="2em" />
                </children>
                <effect>
                   <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
@@ -85,7 +84,7 @@
                   </Label>
                   <ImageView fitHeight="46.0" fitWidth="45.0" layoutX="96.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/storage+icon-1320195879915469160_256.png" />
+                        <Image url="@../a.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="exit" layoutX="768.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
@@ -98,9 +97,9 @@
                         <TableColumn fx:id="idcolumn" prefWidth="68.0" style="-fx-background-color: #fbdcb5;" text="ID" />
                         <TableColumn fx:id="nomcolumn" prefWidth="79.0" text="NOM" />
                         <TableColumn fx:id="prenomcolumn" prefWidth="84.0" text="PRENOM" />
-                        <TableColumn fx:id="adressecolumn" prefWidth="136.0" text="TELEPHONE" />
-                        <TableColumn fx:id="telecolumn" prefWidth="93.0" text="ID LOGIN" />
-                        <TableColumn fx:id="emailcolumn" prefWidth="100.0" text="MOT DE PASSE" />
+                        <TableColumn fx:id="telecolumn" prefWidth="136.0" text="TELEPHONE" />
+                        <TableColumn fx:id="idlogcolumn" prefWidth="93.0" text="ID LOGIN" />
+                        <TableColumn fx:id="mdpcolumn" prefWidth="100.0" text="MOT DE PASSE" />
                      </columns>
                      <effect>
                         <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />
