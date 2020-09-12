@@ -19,3 +19,30 @@
     -fx-background-insets: -0.1, 2.0;
     -fx-font-size:14.0;
 }
+.date-picker > .text-field {
+    -fx-background-insets:3.0;
+    -fx-background-radius: 5.0;
+    -fx-prompt-text-fill:#8A2BE2;
+    -fx-text-fill:#8A2BE2;
+    -fx-font-size:13;
+   -fx-font-family:"Century Gothic";
+	-fx-border-color:FFFFFF;
+}
+.date-picker > .arrow-button {
+    -fx-background-color:  FFFFFF;
+    -fx-background-radius: 5.0;
+
+}
+.date-picker:editable > .arrow-button > * {
+    -fx-background-color:  #8A2BE2;
+}
+.combo-box .list-cell 
+{
+    -fx-background: white;
+    -fx-background-color: transparent;
+    -fx-text-fill: #8A2BE2;
+
+}
+.combo-box .arrow{
+    -fx-background-color:#8A2BE2;
+}
