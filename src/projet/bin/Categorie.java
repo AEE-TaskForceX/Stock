@@ -4,15 +4,15 @@ package projet.bin;
 
 public class Categorie {
 	private String nom;
-	private String intitule;
+	private String desc;
 
 
 
 
-	public Categorie(String nom,String intitule) {
+	public Categorie(String nom,String desc) {
 		super();
 		this.nom=nom;
-		this.intitule=intitule;
+		this.desc=desc;
 		
 	
 
@@ -26,11 +26,11 @@ public class Categorie {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public String getIntitule() {
-		return intitule;
+	public String getDesc() {
+		return desc;
 	}
-	public void setIntitule(String intitule) {
-		this.intitule = intitule;
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 	
 }

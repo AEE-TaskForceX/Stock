@@ -1,6 +1,18 @@
 /com_vendeur/
 /com_client/
 /projet/
+<<<<<<< HEAD
 /storage+icon-1320195879915469160_256.png
 /a.png
 /application/
+=======
+/com_categorie/
+/com_connection/
+/application/
+/storage+icon-1320195879915469160_256.png
+/a.png
+>>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
+/com_fournisseur/
+/admin/
+/vendeur/
+/comvendeur/

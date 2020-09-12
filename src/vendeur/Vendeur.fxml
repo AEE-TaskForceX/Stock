@@ -9,8 +9,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="1131.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="1131.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vendeur.VendeurController">
    <children>
       <AnchorPane layoutX="103.0" layoutY="45.0" prefHeight="519.0" prefWidth="606.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="47.0">
          <children>
@@ -28,15 +27,15 @@
                   </Label>
                   <ImageView fitHeight="63.0" fitWidth="60.0" layoutX="127.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/storage+icon-1320195879915469160_256.png" />
+                        <Image url="@../a.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="exit" layoutX="1035.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
+                  <Label fx:id="exit" layoutX="1035.0" onMouseClicked="#handleButtonAction" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic" size="36.0" />
                      </font>
                   </Label>
-                  <Button layoutX="14.0" layoutY="175.0" mnemonicParsing="false" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="ARTICLES" textFill="WHITE">
+                  <Button layoutX="14.0" layoutY="175.0" mnemonicParsing="false" onAction="#article" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="ARTICLES" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -44,8 +43,8 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <FontAwesomeIcon fill="#eee4e4" glyphName="SIGN_OUT" layoutX="36.0" layoutY="431.0" size="5em" />
-                  <Button layoutX="222.0" layoutY="175.0" mnemonicParsing="false" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="CATEGORIE" textFill="WHITE">
+                  <FontAwesomeIcon fill="#eee4e4" glyphName="SIGN_OUT" layoutX="36.0" layoutY="431.0" onMouseClicked="#signout" size="5em" />
+                  <Button layoutX="222.0" layoutY="175.0" mnemonicParsing="false" onAction="#categorie" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="CATEGORIE" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -53,7 +52,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="435.0" layoutY="175.0" mnemonicParsing="false" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="CLIENTS" textFill="WHITE">
+                  <Button layoutX="435.0" layoutY="175.0" mnemonicParsing="false" onAction="#clients" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="CLIENTS" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -61,7 +60,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="645.0" layoutY="175.0" mnemonicParsing="false" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="COMMANDES" textFill="WHITE">
+                  <Button layoutX="645.0" layoutY="175.0" mnemonicParsing="false" onAction="#commandes" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="COMMANDES" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -69,7 +68,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="856.0" layoutY="175.0" mnemonicParsing="false" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="FACTURES" textFill="WHITE">
+                  <Button layoutX="856.0" layoutY="175.0" mnemonicParsing="false" onAction="#factures" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="FACTURES" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>

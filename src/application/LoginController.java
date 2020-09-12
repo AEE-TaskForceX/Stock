@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 
 public class LoginController {
+
 	@FXML
 	private TextField id;
 	

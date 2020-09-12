@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="795.0" prefWidth="912.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com_fournisseur.FournisseurController">
+   <children>
+      <AnchorPane layoutX="40.0" layoutY="43.0" prefHeight="722.0" prefWidth="832.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="43.0">
+         <children>
+            <AnchorPane layoutX="64.0" layoutY="394.0" maxWidth="738.0" prefHeight="281.0" prefWidth="738.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
+               <children>
+                  <Button layoutX="290.0" layoutY="207.0" mnemonicParsing="false" onAction="#update" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Modifier" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="521.0" layoutY="207.0" mnemonicParsing="false" onAction="#delete" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Supprimer" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="56.0" layoutY="207.0" mnemonicParsing="false" onAction="#insertdata" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Ajouter" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="nomtxt" layoutX="156.0" layoutY="60.0" prefHeight="46.0" prefWidth="169.0" promptText="Nom du Fournisseur" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtadresse" layoutX="411.0" layoutY="60.0" prefHeight="46.0" prefWidth="169.0" promptText="Adresse postale" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txttel" layoutX="411.0" layoutY="118.0" prefHeight="46.0" prefWidth="169.0" promptText="Numero de téléphone" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtemail" layoutX="156.0" layoutY="118.0" prefHeight="46.0" prefWidth="169.0" promptText="Adresse éléctronique" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="664.0" layoutY="162.0" onMouseClicked="#vider" size="2em" />
+               </children>
+               <effect>
+                  <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="6.0" layoutY="14.0" prefHeight="413.0" prefWidth="854.0" style="-fx-background-color: linear-gradient(to right top,#3A1C71,#FDBB2D); -fx-background-radius: 1em;" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="14.0">
+               <children>
+                  <Label layoutX="36.0" layoutY="14.0" text="DS" textFill="#e4e4e3">
+                     <font>
+                        <Font name="Century Gothic" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="60.0" text="Stock Manager" textFill="#e4e4e3">
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="46.0" fitWidth="45.0" layoutX="96.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../a.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="exit" layoutX="822.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="36.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="table" layoutX="146.0" layoutY="102.0" prefHeight="265.0" prefWidth="564.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@../com_client/Table.css">
+                     <columns>
+                        <TableColumn fx:id="idcolumn" prefWidth="68.0" text="ID" />
+                        <TableColumn fx:id="nomcolumn" prefWidth="79.0" text="NOM" />
+                        <TableColumn fx:id="adressecolumn" prefWidth="123.0" text="ADRESSE POSTALE" />
+                        <TableColumn fx:id="emailcolumn" prefWidth="158.0" text="ADRESSE EMAIL" />
+                        <TableColumn fx:id="telcolumn" prefWidth="134.0" text="NUMERO TEL" />
+                     </columns>
+                     <effect>
+                        <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />
+                     </effect>
+                  </TableView>
+                  <TextField fx:id="rechercher" layoutX="343.0" layoutY="37.0" prefHeight="46.0" prefWidth="169.0" promptText="Rechercher" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../com_client/rechercher.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="526.0" layoutY="80.0" size="2em" />
+                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="36.0" layoutY="364.0" onMouseClicked="#back" size="2em" />
+                  <Label layoutX="7.0" layoutY="191.0" text="Fournisseurs" textFill="#e4e4e3">
+                     <effect>
+                        <DropShadow spread="0.35" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow height="44.595" radius="32.94625" spread="0.28" width="89.19" />
+               </effect>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

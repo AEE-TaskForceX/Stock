@@ -1,4 +1,4 @@
-package com_vendeur;
+package comvendeur;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,6 +29,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import projet.bin.Client;
 import projet.bin.Vendeur;
@@ -392,6 +393,7 @@ public void back(MouseEvent event) throws IOException {
     Scene homepageScene = new Scene(homePage);
     Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     appStage.setScene(homepageScene);
+    homepageScene.setFill(Color.TRANSPARENT);
     appStage.show();
 }
     	
