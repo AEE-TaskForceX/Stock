@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="487.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com_categorie.CategorieController">
+   <children>
+      <TextField fx:id="searchfield" layoutX="456.0" layoutY="54.0" style="-fx-background-color: transparent; -fx-border-color: #FFA07A; -fx-border-width: 0px 0px 3px 0px; -fx-border-radius: 10;" />
+      <TextField fx:id="chargefield" layoutX="181.0" layoutY="263.0" style="-fx-background-color: transparent; -fx-border-color: #FFA07A; -fx-border-width: 0px 0px 3px 0px; -fx-border-radius: 10;" />
+      <Button layoutX="207.0" layoutY="433.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #FFA07A; -fx-background-radius: 10;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="33.0" layoutY="433.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #FFA07A; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <FontAwesomeIcon fill="LIGHTSALMON" iconName="SEARCH" layoutX="437.0" layoutY="74.0" size="20" />
+      <Label layoutX="324.0" layoutY="8.0" text="Types" textFill="LIGHTSALMON">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="265.0" text="Description :" textFill="LIGHTSALMON">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <FontAwesomeIcon fill="LIGHTSALMON" iconName="HOME" layoutX="93.0" layoutY="68.0" size="70" />
+      <TextField fx:id="typefield" layoutX="181.0" layoutY="198.0" style="-fx-background-color: transparent; -fx-border-color: #FFA07A; -fx-border-width: 0px 0px 3px 0px; -fx-border-radius: 10;" />
+      <Button fx:id="BackBtn" layoutX="563.0" layoutY="433.0" mnemonicParsing="false" onAction="#Retour" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #FFA07A; -fx-background-radius: 10;" text="Retour" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="10.0" layoutY="200.0" text="Nom de categorie :" textFill="LIGHTSALMON">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="365.0" layoutY="93.0" onMouseClicked="#getSelected" prefHeight="316.0" prefWidth="311.0" style="-fx-background-color: transparent; -fx-border-color: #FFA07A; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 0px 3px 3px 3px;" stylesheets="@../../../../eclipse-workspace/AgenceLocation/src/agent/tab.css">
+         <columns>
+            <TableColumn fx:id="col_cat" prefWidth="158.0" text="Categorie" />
+            <TableColumn fx:id="col_desc" prefWidth="152.0" text="Description" />
+         </columns>
+      </TableView>
+      <Button layoutX="366.0" layoutY="433.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #FFA07A; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <FontAwesomeIcon fill="LIGHTSALMON" iconName="BUILDING" layoutX="56.0" layoutY="95.0" size="50" />
+   </children>
+</AnchorPane>
