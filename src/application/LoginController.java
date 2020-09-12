@@ -117,7 +117,7 @@ public class LoginController {
      String ID = id.getText();
      String password = mdp.getText();
   
-     String sql = "SELECT * FROM `admins` WHERE id=? AND mdp=?";
+     String sql = "SELECT * FROM `admin` WHERE Log_Id=? AND mdp=?";
 
      try {
          ps = con.prepareStatement(sql);
@@ -127,7 +127,7 @@ public class LoginController {
          rs = ps.executeQuery();
          if (rs.next()) {
 
-        	 loginid =rs.getString("id");
+        	 loginid =rs.getString("iLog_Id");
              
              System.out.println("Successful login");
              return "Success";

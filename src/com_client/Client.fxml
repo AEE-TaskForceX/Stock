@@ -68,7 +68,7 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="664.0" layoutY="161.0" size="2em" />
+                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="664.0" layoutY="161.0" onMouseClicked="#vider" size="2em" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="17.0" layoutY="19.0" prefHeight="413.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to right top,#3A1C71,#FDBB2D); -fx-background-radius: 1em;" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="19.0">
@@ -95,7 +95,7 @@
                   </Label>
                   <TableView fx:id="table" layoutX="118.0" layoutY="103.0" prefHeight="265.0" prefWidth="564.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@Table.css">
                      <columns>
-                        <TableColumn fx:id="idcolumn" prefWidth="68.0" style="-fx-background-color: #fbdcb5;" text="ID" />
+                        <TableColumn fx:id="idcolumn" prefWidth="68.0" text="ID" />
                         <TableColumn fx:id="nomcolumn" prefWidth="79.0" text="NOM" />
                         <TableColumn fx:id="prenomcolumn" prefWidth="84.0" text="PRENOM" />
                         <TableColumn fx:id="adressecolumn" prefWidth="136.0" text="ADRESSE" />

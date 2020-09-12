@@ -36,9 +36,23 @@ public class AdminController {
 		
 	}
 	@FXML
-    private void compte(ActionEvent event) {
+    private void compte(ActionEvent event) throws IOException {
        
-            System.exit(0);
+
+	    Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        
+        stage.close();
+
+        Scene scene;
+		
+			scene = new Scene(FXMLLoader.load(getClass().getResource("/com_adminsettings/AdminSettings.fxml")));
+		
+        stage.setScene(scene);
+       // stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+       
+       stage.show();
         
 	}
 	@FXML

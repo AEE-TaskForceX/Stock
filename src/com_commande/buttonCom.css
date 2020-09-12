@@ -1,0 +1,22 @@
+.button{
+    
+    -fx-background-insets:3.0;
+    -fx-background-radius: 20;
+    -fx-background-color:linear-gradient(to right top,#FDBB2D,#D2691E);
+    -fx-text-fill:white;
+    -fx-font-size:15;
+   -fx-font-family:"Century Gothic";
+	
+}
+
+
+.button:hover{
+	
+     -fx-background-color:linear-gradient(to right top,#FDBB2D,#8B4513);
+    -fx-text-fill:white;
+ -fx-background-radius: 20;
+     -fx-background-insets: -0.1, 2.0;
+    -fx-font-size:16;
+}
+
+

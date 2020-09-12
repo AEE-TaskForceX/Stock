@@ -35,7 +35,7 @@
                         <Font name="Century Gothic" size="36.0" />
                      </font>
                   </Label>
-                  <Button layoutX="14.0" layoutY="175.0" mnemonicParsing="false" onAction="#article" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="ARTICLES" textFill="WHITE">
+                  <Button layoutX="9.0" layoutY="205.0" mnemonicParsing="false" onAction="#article" prefHeight="132.0" prefWidth="166.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonV.css" text="ARTICLES" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -44,7 +44,7 @@
                      </font>
                   </Button>
                   <FontAwesomeIcon fill="#eee4e4" glyphName="SIGN_OUT" layoutX="36.0" layoutY="431.0" onMouseClicked="#signout" size="5em" />
-                  <Button layoutX="222.0" layoutY="175.0" mnemonicParsing="false" onAction="#categorie" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="CATEGORIE" textFill="WHITE">
+                  <Button layoutX="187.0" layoutY="205.0" mnemonicParsing="false" onAction="#categorie" prefHeight="132.0" prefWidth="166.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonV.css" text="CATEGORIE" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -52,7 +52,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="435.0" layoutY="175.0" mnemonicParsing="false" onAction="#clients" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="CLIENTS" textFill="WHITE">
+                  <Button layoutX="361.0" layoutY="205.0" mnemonicParsing="false" onAction="#clients" prefHeight="132.0" prefWidth="166.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonV.css" text="CLIENTS" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -60,7 +60,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="645.0" layoutY="175.0" mnemonicParsing="false" onAction="#commandes" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="COMMANDES" textFill="WHITE">
+                  <Button layoutX="542.0" layoutY="205.0" mnemonicParsing="false" onAction="#commandes" prefHeight="132.0" prefWidth="166.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonV.css" text="COMMANDES" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -68,7 +68,15 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="856.0" layoutY="175.0" mnemonicParsing="false" onAction="#factures" prefHeight="169.0" prefWidth="197.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@../admin/buttonA.css" text="FACTURES" textFill="WHITE">
+                  <Button layoutX="718.0" layoutY="205.0" mnemonicParsing="false" onAction="#factures" prefHeight="132.0" prefWidth="166.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonV.css" text="FACTURES" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="895.0" layoutY="205.0" mnemonicParsing="false" onAction="#fournisseur" prefHeight="132.0" prefWidth="166.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonV.css" text="FOURNISSEURS" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>

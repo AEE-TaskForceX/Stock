@@ -8,10 +8,13 @@ public class Commande {
 	private String prenomcli;
 	private String telcli;
 	private String details;
+	private String idarticle;
+	private String refarticle;
+	private String prix;
 
 
 
-	public Commande(String id,String idcli, String datecom, String nomcli, String prenomcli , String telcli,String details) {
+	public Commande(String id,String idcli,String idarticle, String datecom, String nomcli, String prenomcli , String telcli,String details,String prix,  String refarticle) {
 		super();
 		this.id=id;
 		this.idcli=idcli;
@@ -20,8 +23,29 @@ public class Commande {
 		this.prenomcli=prenomcli;
 		this.telcli=telcli;
 		this.details=details;
+		this.idarticle=idarticle;
+		this.refarticle=refarticle;
+		this.prix=prix;
 	
 
+	}
+	public String getIdarticle() {
+		return idarticle;
+	}
+	public void setIdarticle(String idarticle) {
+		this.idarticle = idarticle;
+	}
+	public String getRefarticle() {
+		return refarticle;
+	}
+	public void setRefarticle(String refarticle) {
+		this.refarticle = refarticle;
+	}
+	public String getPrix() {
+		return prix;
+	}
+	public void setPrix(String prix) {
+		this.prix = prix;
 	}
 	public Commande() {
 		super();

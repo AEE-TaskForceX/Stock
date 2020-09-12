@@ -108,4 +108,18 @@ private void factures(ActionEvent event) throws IOException {
         scene.setFill(Color.TRANSPARENT);
         stage.show();
 }
+@FXML
+private void fournisseur(ActionEvent event) throws IOException {
+   
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_fournisseur/Fournisseur.fxml")));
+        stage.setScene(scene);
+       // stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+}
 }

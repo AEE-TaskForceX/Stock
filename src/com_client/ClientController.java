@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import projet.bin.Client;
 
@@ -408,6 +409,7 @@ public void back(MouseEvent event) throws IOException {
     Scene homepageScene = new Scene(homePage);
     Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     appStage.setScene(homepageScene);
+    homepageScene.setFill(Color.TRANSPARENT);
     appStage.show();
 }
     	
@@ -453,5 +455,9 @@ private void search() {
 	}
 	);
 }
-	
+@FXML
+private void handleButtonAction(MouseEvent event) {
+   
+        System.exit(0);
+    }
 }

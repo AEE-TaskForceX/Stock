@@ -56,7 +56,7 @@ public class CategorieController  implements Initializable{
     	String desc = chargefield.getText();
     	a.setNom(nom);
     	a.setDesc(desc);
-    	String rqt ="UPDATE categorie SET nom_cat=?, description = ?  WHERE Type=?";
+    	String rqt ="UPDATE categorie SET nom_cat=?, description = ?  WHERE nom_cat=?";
     	try {
 			st = con.prepareStatement(rqt);
 			

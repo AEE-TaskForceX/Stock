@@ -3,8 +3,8 @@
     -fx-background-insets:3.0;
     -fx-background-radius: 5.0;
     -fx-background-color:linear-gradient(to right top,#FDBB2D,#D2691E);
-    -fx-text-fill:#8A2BE2;
-    -fx-font-size:16;
+    -fx-text-fill:white;
+    -fx-font-size:20;
    -fx-font-family:"Century Gothic";
 	
 }
@@ -16,7 +16,7 @@
     -fx-text-fill:white;
  
     -fx-background-insets: -0.1, 2.0;
-    -fx-font-size:17.0;
+    -fx-font-size:23;
 }
 
 
