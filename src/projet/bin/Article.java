@@ -5,12 +5,12 @@ public class Article {
 	private String nomfourni;
 	private String nomcat;
 	private String dateachat;
-	private String quantite;
+	private int quantite;
 	private String prix;
 	private String ref;
 	private String desc;
 
-	public Article(String id,String nomfourni, String nomcat , String dateachat,String quantite,String prix,String ref,String desc) {
+	public Article(String id,String nomfourni, String nomcat , String dateachat,int quantite,String prix,String ref,String desc) {
 		super();
 		this.id=id;
 		this.nomfourni=nomfourni;
@@ -49,10 +49,10 @@ public class Article {
 	public void setDateachat(String dateachat) {
 		this.dateachat = dateachat;
 	}
-	public String getQuantite() {
+	public int getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(String quantite) {
+	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
 	public String getPrix() {

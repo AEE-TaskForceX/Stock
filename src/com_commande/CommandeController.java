@@ -6,24 +6,29 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 import com_article.ArticleController;
 import com_client.ClientController;
 import com_connection.ConnectionDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 
 import javafx.scene.control.TextArea;
@@ -126,6 +131,7 @@ public class CommandeController implements Initializable{
 		viewCom();
 		viewArt();
 		TableToTextCli();
+		TableToTextCom();
 		TableToTextArt();
 		searchCli();
 		searchCom();
@@ -140,7 +146,7 @@ public class CommandeController implements Initializable{
     		String sql = "SELECT * FROM `client`" ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
-    		
+    		tabcli.getItems().removeAll(dataCli);
     		while (rs.next())
     		{
     			dataCli.add(new Client(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ) );
@@ -172,10 +178,10 @@ public class CommandeController implements Initializable{
     		String sql = "SELECT * FROM `article`" ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
-    		
+    		tabart.getItems().removeAll(dataArt);
     		while (rs.next())
     		{
-    			dataArt.add(new Article(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6), rs.getString(7) ,  rs.getString(8) ) );
+    			dataArt.add(new Article(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getInt(5) ,  rs.getString(6), rs.getString(7) ,  rs.getString(8) ) );
     			
     		}
     		conn.close();
@@ -204,7 +210,7 @@ public class CommandeController implements Initializable{
     		String sql = "SELECT * FROM `commande`" ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
-    		
+    		tabcom.getItems().removeAll(dataCom);
     		while (rs.next())
     		{
     			dataCom.add(new Commande(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6), rs.getString(7) ,  rs.getString(8), rs.getString(9) ,  rs.getString(10) ) );
@@ -217,15 +223,15 @@ public class CommandeController implements Initializable{
 		}
     	
 		idcomm.setCellValueFactory(new PropertyValueFactory<Commande, String>("id"));
-    	idclien.setCellValueFactory(new PropertyValueFactory<Commande, String>("nomcat"));
-    	idarticl.setCellValueFactory(new PropertyValueFactory<Commande, String>("quantite"));
-    	date.setCellValueFactory(new PropertyValueFactory<Commande, String>("prix"));
-    	Nom.setCellValueFactory(new PropertyValueFactory<Commande, String>("ref"));
-    	prenom.setCellValueFactory(new PropertyValueFactory<Commande, String>("desc"));
-    	tel.setCellValueFactory(new PropertyValueFactory<Commande, String>("quantite"));
-    	reference.setCellValueFactory(new PropertyValueFactory<Commande, String>("prix"));
-    	prix.setCellValueFactory(new PropertyValueFactory<Commande, String>("ref"));
-    	detail.setCellValueFactory(new PropertyValueFactory<Commande, String>("desc"));
+    	idclien.setCellValueFactory(new PropertyValueFactory<Commande, String>("idcli"));
+    	idarticl.setCellValueFactory(new PropertyValueFactory<Commande, String>("idarticle"));
+    	date.setCellValueFactory(new PropertyValueFactory<Commande, String>("datecom"));
+    	Nom.setCellValueFactory(new PropertyValueFactory<Commande, String>("nomcli"));
+    	prenom.setCellValueFactory(new PropertyValueFactory<Commande, String>("prenomcli"));
+    	tel.setCellValueFactory(new PropertyValueFactory<Commande, String>("telcli"));
+    	reference.setCellValueFactory(new PropertyValueFactory<Commande, String>("refarticle"));
+    	prix.setCellValueFactory(new PropertyValueFactory<Commande, String>("prix"));
+    	detail.setCellValueFactory(new PropertyValueFactory<Commande, String>("details"));
     	
     	tabcom.setItems(dataCom);	
     	
@@ -246,7 +252,7 @@ public class CommandeController implements Initializable{
        
             System.exit(0);
         }
-	 public void vider ( )
+	 public void vider (MouseEvent event)
 	    {
 	    	try {
 	    		
@@ -295,8 +301,30 @@ public class CommandeController implements Initializable{
 					idarticle.setText(l.getId());
 					refarticle.setText(l.getNomcat());
 					prixarticle.setText(l.getPrix());
+					
 				
 					
+				
+				}
+				
+				
+			});
+		}
+	  private void TableToTextCom() {
+			tabcom.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+				@Override
+				public void handle(MouseEvent event) {
+					// TODO Auto-generated method stub
+					Commande c =tabcom.getItems().get(tabcom.getSelectionModel().getSelectedIndex());
+					idarticle.setText(c.getIdarticle());
+					refarticle.setText(c.getRefarticle());
+					prixarticle.setText(c.getPrix());
+					idclient.setText(c.getIdcli());
+					nomclient.setText(c.getNomcli());
+					prenomclient.setText(c.getPrenomcli());
+					telephoneclient.setText(c.getTelcli());
+					details.setText(c.getDetails());
 				
 				}
 				
@@ -351,7 +379,7 @@ public class CommandeController implements Initializable{
 				PreparedStatement pst=conn.prepareStatement("Select * from article");
 				ResultSet rs=pst.executeQuery();
 				while(rs.next()) {
-					dataArt.add(new Article(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+					dataArt.add(new Article(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8)));
 				}
 			}
 			catch(SQLException ex){
@@ -374,7 +402,7 @@ public class CommandeController implements Initializable{
 						PreparedStatement pst=conn.prepareStatement(sql);
 						ResultSet rs=pst.executeQuery();
 						while(rs.next()) {
-							dataArt.add(new Article(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+							dataArt.add(new Article(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8)));
 						}
 						tabart.setItems(dataArt);
 					}catch(SQLException ex) {
@@ -425,4 +453,334 @@ public class CommandeController implements Initializable{
 			}
 			);
 		}
+		
+		 public static int insert(Commande cl)
+		    {
+		    	Connection conn = ConnectionDB.conDB();
+		    	int rs = 0;
+		    	try {
+		    		
+		    		String sql = "insert into commande (id_client , Id_Article , Date_Commande, Nom_Client , Prenom_Client , Tel_Client	,Ref_Article,	Prix_Article, Details ) values(?,?,?,?,?,?,?,?,?)";
+		    		PreparedStatement stm = conn.prepareStatement(sql);
+		    		
+		    		stm.setString(1, cl.getIdcli());
+		    		stm.setString(2, cl.getIdarticle());
+		    		stm.setString(3, cl.getDatecom());
+		    		stm.setString(4, cl.getNomcli());
+		    		stm.setString(5, cl.getPrenomcli());
+		    		stm.setString(6, cl.getTelcli());
+		    		stm.setString(7, cl.getRefarticle());
+		    		stm.setString(8, cl.getPrix());
+		    		stm.setString(9, cl.getDetails());
+		    		
+		    		
+		    		
+		    		 rs = stm.executeUpdate();
+		    		
+		    		
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println(e.getMessage());
+				}
+		    	
+		    return rs;	
+		    }
+		    public String Idrt() {
+		    	 Commande selected =tabcom.getSelectionModel().getSelectedItem();
+			        String idd = selected.getIdarticle();
+			        System.out.println("id du article a modifier"+idd);
+		    	return idd;
+		    }
+		
+		@FXML
+		public void ajouter(ActionEvent event) throws SQLException {
+			// TODO Autogenerated
+		
+		LocalDate dateemp=LocalDate.now();
+	      String IDCLIENT=idclient.getText();
+	      String NOMCLIENT=nomclient.getText();
+	      String PRENOMCLIENT=prenomclient.getText();
+	      String TELEPHONECLIENT=telephoneclient.getText();
+	      String IDARTICLE=idarticle.getText();
+	      String REFARTICLE=refarticle.getText();
+	      String PRIXARTICLE=prixarticle.getText();
+	      String DETAILS=details.getText();
+	      String DATE=dateemp.toString();
+		 Commande dm = new Commande();
+	      
+	     
+	      dm.setIdcli(IDCLIENT);
+	      dm.setDatecom(DATE);
+	      dm.setNomcli(NOMCLIENT);
+	      dm.setPrenomcli(PRENOMCLIENT);
+	      dm.setTelcli(TELEPHONECLIENT);
+	      dm.setDetails(DETAILS);
+	      dm.setIdarticle(IDARTICLE);
+	      dm.setRefarticle(REFARTICLE);
+	      dm.setPrix(PRIXARTICLE);
+	      
+
+	      int status= insert(dm);
+	      if(status>0){
+	    	  
+	    	  
+	    	  
+	    	  Article l=new Article();
+	    	  l.setId(IDARTICLE);
+	    	  Article li =tabart.getItems().get(tabart.getSelectionModel().getSelectedIndex());
+	    	  int quantite= li.getQuantite();
+	    	  l.setQuantite(quantite-1);
+	    	  
+	    	  String sql="UPDATE `article` SET Quantite=? WHERE Id_Article=? ";
+	    	  Connection conn = ConnectionDB.conDB();
+             PreparedStatement stat;
+             stat=conn.prepareStatement(sql);
+             stat.setInt(1, l.getQuantite());
+             stat.setString(2, l.getId());
+          
+             
+             stat.executeUpdate();
+             conn.close();
+	    	  
+	          Alert alert = new Alert (AlertType.INFORMATION);
+	          alert.setTitle("Ajouter Commande");
+	          alert.setHeaderText("Information");
+	          alert.setContentText("Commande ajoutée avec succès");
+	          alert.showAndWait();
+	      }else{
+	          Alert alert = new Alert (AlertType.ERROR);
+	          alert.setTitle("Ajouter Commande");
+	          alert.setHeaderText("Information");
+	          alert.setContentText("Ajout de commande échoué");
+	          alert.showAndWait();
+	          
+	      }
+	      viewCom();
+			viewArt();
+		
+		}
+		
+		
+		   public static int update(Commande cl,String idd)
+			{
+				Connection conn = ConnectionDB.conDB();
+		    	int d = 0;
+		    	try {
+		    		
+		    		String sql = "update commande set  id_client = ? , Id_Article= ?  , Date_Commande = ? , Nom_Client = ? , Prenom_Client = ? , Tel_Client	= ? , Ref_Article = ?  , Prix_Article =? , Details = ? where id_commande = ?  ";
+		    		PreparedStatement stm = conn.prepareStatement(sql);
+		    		
+		    		stm.setString(1, cl.getIdcli());
+		    		stm.setString(2, cl.getIdarticle());
+		    		stm.setString(3, cl.getDatecom());
+		    		stm.setString(4, cl.getNomcli());
+		    		stm.setString(5, cl.getPrenomcli());
+		    		stm.setString(6, cl.getTelcli());
+		    		stm.setString(7, cl.getRefarticle());
+		    		stm.setString(8, cl.getPrix());
+		    		stm.setString(9, cl.getDetails());
+		    		stm.setString(10, idd);
+		    		
+		    		 d = stm.executeUpdate();
+		    		
+		    		
+					
+				} catch (SQLException e) {
+					// TODO: handle exception
+					System.out.println(e.getMessage());
+				}
+		    	
+		    return d;	
+				
+				
+				
+			}
+			
+		   public int qutt() throws SQLException {
+			   
+	    		Connection conne = ConnectionDB.conDB();
+	    		PreparedStatement ps = null;
+	    		 ResultSet rs = null;
+	    		int quttt=0;
+	    		
+	    		String sql3="SELECT Quantite from `article` WHERE Id_Article=?";
+	    		
+	    		 ps = conne.prepareStatement(sql3);
+	             ps.setString(1, Idrt());
+	          System.out.println("id"+Idrt());
+	           
+	             rs = ps.executeQuery();
+	             if (rs.next()) {
+	            	 
+	            	 quttt =rs.getInt("Quantite")+1;
+	                 
+	            	 System.out.println("qutt"+quttt);
+	            	 
+	            	 
+	            //	 a.setQuantite(qutt);
+	            	 
+	             }else {
+	            	 System.out.println("erreur");
+	             }
+	             
+	             return quttt;
+		   }
+		    
+		    public void modifier (ActionEvent event) throws SQLException 
+			{
+		    	
+
+				LocalDate dateemp=LocalDate.now();
+			      String IDCLIENT=idclient.getText();
+			      String NOMCLIENT=nomclient.getText();
+			      String PRENOMCLIENT=prenomclient.getText();
+			      String TELEPHONECLIENT=telephoneclient.getText();
+			      String IDARTICLE=idarticle.getText();
+			      String REFARTICLE=refarticle.getText();
+			      String PRIXARTICLE=prixarticle.getText();
+			      String DETAILS=details.getText();
+			      String DATE=dateemp.toString();
+			     // String logid = LoginController.getlogid();
+			   
+			      
+			      Commande dm = new Commande();
+			      
+			     
+			      dm.setIdcli(IDCLIENT);
+			      dm.setDatecom(DATE);
+			      dm.setNomcli(NOMCLIENT);
+			      dm.setPrenomcli(PRENOMCLIENT);
+			      dm.setTelcli(TELEPHONECLIENT);
+			      dm.setDetails(DETAILS);
+			      dm.setIdarticle(IDARTICLE);
+			      dm.setRefarticle(REFARTICLE);
+			      dm.setPrix(PRIXARTICLE);
+			      
+		    	
+		    	
+		    	 Commande selected =tabcom.getSelectionModel().getSelectedItem();
+			        String idd = selected.getId();
+			        System.out.println("idd"+idd);
+		    	int etat = update(dm,idd);
+		    	
+		    	
+		    	if (etat > 0) {
+		    
+		    		
+		    		Article a=new Article();
+		             int QUTT=qutt();
+		             String ID=Idrt();
+		             a.setQuantite(QUTT);
+		             a.setId(ID);
+		    		
+		    		String sql1="UPDATE `article` SET Quantite=? WHERE Id_Article=? ";
+		    		Connection con = ConnectionDB.conDB();
+		              PreparedStatement st;
+		              st=con.prepareStatement(sql1);
+		              st.setInt(1, a.getQuantite());
+		              st.setString(2, a.getId());
+		           
+		              
+		              st.executeUpdate();
+		              con.close();
+			    	  
+		    		
+		
+		      	  Article l=new Article();
+		    	  l.setId(IDARTICLE);
+		    	  Article li =tabart.getItems().get(tabart.getSelectionModel().getSelectedIndex());
+		    	  int quantite= li.getQuantite();
+		    	  l.setQuantite(quantite-1);
+		    	  
+		    	  String sql="UPDATE `article` SET Quantite=? WHERE Id_Article=? ";
+		    	  Connection conn = ConnectionDB.conDB();
+	              PreparedStatement stat;
+	              stat=conn.prepareStatement(sql);
+	              stat.setInt(1, l.getQuantite());
+	              stat.setString(2, l.getId());
+	           
+	              
+	              stat.executeUpdate();
+	              conn.close();
+		    	  
+		    	
+		    	Alert alert = new Alert(AlertType.INFORMATION);
+		    	alert.setTitle("Modifier Commande");
+		    	alert.setHeaderText("Information");
+		    	alert.setContentText("Commande bien Modifiée");
+		    	alert.showAndWait();
+		    	
+		              }
+		    	else
+		    	{
+		    		Alert alert = new Alert(AlertType.ERROR);
+			    	alert.setTitle("Modifier Commande");
+			    	alert.setHeaderText("Information");
+			    	alert.setContentText("Commande Non Modifiée");
+			    	alert.showAndWait();	
+		    
+		    	}
+		    	
+		    	  viewCom();
+					viewArt();
+		    	
+			}
+		    public static int supp(String id)
+			{
+				Connection conn = ConnectionDB.conDB();
+				int d = 0;
+				
+				
+				try {
+					
+					String sql = "delete from commande where id_commande = ? ";
+					PreparedStatement stm = conn.prepareStatement(sql);
+					stm.setString(1, id);
+					d = stm.executeUpdate();
+					
+				} catch (SQLException e) {
+					// TODO: handle exception
+					
+					System.out.println(e.getMessage());
+				}
+				
+				
+				
+				return d;
+			
+				
+			}
+		    
+		    
+		    public void delete (ActionEvent event)
+			{
+		    	Commande selected =tabcom.getSelectionModel().getSelectedItem();
+		        String idd = selected.getId();
+		        tabcom.getItems().removeAll(selected);
+				int etat = supp(idd);
+				
+				if(etat > 0) 
+		        {
+		    	
+		    	Alert alert = new Alert(AlertType.INFORMATION);
+		    	alert.setTitle("Supprimer Commande");
+		    	alert.setHeaderText("Information");
+		    	alert.setContentText("Commande bien Supprimée");
+		    	alert.showAndWait();
+		    	
+		              }
+		    	else
+		    	{
+		    		Alert alert = new Alert(AlertType.ERROR);
+			    	alert.setTitle("Supprimer Commande");
+			    	alert.setHeaderText("Information");
+			    	alert.setContentText("Commande Non Supprimée");
+			    	alert.showAndWait();	
+		    
+		    	}
+				
+				
+			}
+		    
 }
