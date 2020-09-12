@@ -13,7 +13,8 @@ import projet.bin.Categorie;
 
 
 public class ConnectionDB {
-	
+	static String nom;
+	static String prenom;
 	public static Connection conDB() 
     {
         try{
@@ -42,5 +43,9 @@ public class ConnectionDB {
          }
          return list;
      }
+	 
+	 
+	 
+	
 
 }
