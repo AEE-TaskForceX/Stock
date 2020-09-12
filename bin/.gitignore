@@ -1,3 +1,7 @@
+/admin/
+/application/
+/com_adminsettings/
+/com_article/
 /com_categorie/
 /com_client/
 /com_commande/
@@ -6,5 +10,3 @@
 /comvendeur/
 /projet/
 /vendeur/
-/admin/
-/application/
