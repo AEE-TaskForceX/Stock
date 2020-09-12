@@ -11,10 +11,11 @@ public class Commande {
 	private String idarticle;
 	private String refarticle;
 	private String prix;
+	private String quantite;
 
 
 
-	public Commande(String id,String idcli,String idarticle, String datecom, String nomcli, String prenomcli , String telcli,String details,String prix,  String refarticle) {
+	public Commande(String id,String idcli,String idarticle, String datecom, String nomcli, String prenomcli , String telcli,String details,String prix,String quantite,  String refarticle) {
 		super();
 		this.id=id;
 		this.idcli=idcli;
@@ -26,11 +27,19 @@ public class Commande {
 		this.idarticle=idarticle;
 		this.refarticle=refarticle;
 		this.prix=prix;
+		this.quantite=quantite;
 	
 
 	}
 	public String getIdarticle() {
 		return idarticle;
+	}
+	
+	public String getQuantite() {
+		return quantite;
+	}
+	public void setQuantite(String quantite) {
+		this.quantite = quantite;
 	}
 	public void setIdarticle(String idarticle) {
 		this.idarticle = idarticle;

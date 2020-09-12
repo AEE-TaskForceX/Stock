@@ -7,20 +7,28 @@ public class Facture {
 	private String nomcli;
 	private String prenomcli;
 	private String datefact;
+	private String tel;
+	private String ref;
+
+	private String prix;
+	private String quantite;
 	private String methpai;
 	private String tva;
 	private String montant;
 
 
-	public Facture(String id,String idcom, String idvend, String nomcli, String prenomcli , String datefact,String methpai,String tva,String montant) {
+	public Facture(String id,String idcom, String idvend, String datefact, String nomcli, String prenomcli, String tel,String ref,String prix,String quantite ,String methpai,String tva,String montant) {
 		super();
 		this.id=id;
 		this.idcom=idcom;
 		this.idvend=idvend;
+		this.datefact=datefact;
 		this.nomcli=nomcli;
 		this.prenomcli=prenomcli;
-	
-		this.datefact=datefact;
+		this.tel=tel;
+		this.ref=ref;
+		this.prix=prix;
+		this.quantite=quantite;
 		this.methpai=methpai;
 		this.tva=tva;
 		this.montant=montant;
@@ -31,6 +39,30 @@ public class Facture {
 		super();
 	}
 	
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getRef() {
+		return ref;
+	}
+	public void setRef(String ref) {
+		this.ref = ref;
+	}
+	public String getPrix() {
+		return prix;
+	}
+	public void setPrix(String prix) {
+		this.prix = prix;
+	}
+	public String getQuantite() {
+		return quantite;
+	}
+	public void setQuantite(String quantite) {
+		this.quantite = quantite;
+	}
 	public String getNomcli() {
 		return nomcli;
 	}
