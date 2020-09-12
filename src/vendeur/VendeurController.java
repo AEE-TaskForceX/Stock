@@ -44,7 +44,7 @@ public class VendeurController {
         stage.close();
 
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_categorie/Categorie.fxml")));
-        stage.setScene(scene);
+        stage.setScene(scene);/**/
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stage.show();
