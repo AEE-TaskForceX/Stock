@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import projet.bin.Article;
 import projet.bin.Categorie;
 
 
@@ -44,6 +45,51 @@ public class ConnectionDB {
          return list;
      }
 	 
+	 
+	 public static ObservableList<String> getDataCat(){
+         Connection con = conDB();
+         ObservableList<String> list = FXCollections.observableArrayList();
+         try {
+             PreparedStatement ps = con.prepareStatement("select nom_cat from categorie");
+             ResultSet rs = ps.executeQuery();
+
+             while (rs.next()){
+                 list.add(rs.getString("nom_cat"));
+             }
+         } catch (Exception e) {
+         }
+         return list;
+     }
+	 public static ObservableList<String> getDataFourn(){
+         Connection con = conDB();
+         ObservableList<String> list = FXCollections.observableArrayList();
+         try {
+             PreparedStatement ps = con.prepareStatement("select Nom_Fournisseur from fournisseur");
+             ResultSet rs = ps.executeQuery();
+
+             while (rs.next()){
+                 list.add(rs.getString("Nom_Fournisseur"));
+             }
+         } catch (Exception e) {
+         }
+         return list;
+     }
+	 public static ObservableList<Article> getDataArt(){
+         Connection con = conDB();
+         ObservableList<Article> listl = FXCollections.observableArrayList();
+         try {
+             PreparedStatement ps = con.prepareStatement("select * from article");
+             ResultSet rs = ps.executeQuery();
+             
+             while (rs.next()){   
+                 
+            listl.add(new Article(rs.getString(1), rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+             }
+         } catch (Exception e) {
+        	 e.printStackTrace();
+         }
+         return listl;
+     }
 	 
 	 
 	

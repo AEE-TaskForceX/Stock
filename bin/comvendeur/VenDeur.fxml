@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -64,7 +63,6 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="664.0" layoutY="162.0" onMouseClicked="#vider" size="2em" />
                </children>
                <effect>
                   <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
@@ -97,9 +95,10 @@
                         <TableColumn fx:id="idcolumn" prefWidth="68.0" text="ID" />
                         <TableColumn fx:id="nomcolumn" prefWidth="79.0" text="NOM" />
                         <TableColumn fx:id="prenomcolumn" prefWidth="84.0" text="PRENOM" />
-                        <TableColumn fx:id="telecolumn" prefWidth="136.0" text="TELEPHONE" />
-                        <TableColumn fx:id="idlogcolumn" prefWidth="93.0" text="ID LOGIN" />
-                        <TableColumn fx:id="mdpcolumn" prefWidth="100.0" text="MOT DE PASSE" />
+                        <TableColumn fx:id="telecolumn" prefWidth="90.0" text="TELEPHONE" />
+                        <TableColumn fx:id="ventescolumn" prefWidth="75.0" text="Ventes" />
+                        <TableColumn fx:id="idlogcolumn" prefWidth="77.0" text="ID LOGIN" />
+                        <TableColumn fx:id="mdpcolumn" prefWidth="89.0" text="MOT DE PASSE" />
                      </columns>
                      <effect>
                         <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />
@@ -110,8 +109,6 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="500.0" layoutY="80.0" size="2em" />
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="36.0" layoutY="364.0" onMouseClicked="#back" size="2em" />
                   <Label layoutX="3.0" layoutY="191.0" text="Vendeurs" textFill="#e4e4e3">
                      <effect>
                         <DropShadow spread="0.35" />

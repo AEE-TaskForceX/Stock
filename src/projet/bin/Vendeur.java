@@ -5,19 +5,28 @@ public class Vendeur {
 	private String nom;
 	private String prenom;
 	private String tel;
+	private double ventes;
 	private String loginid;
 	private String mdp;
-	public Vendeur(String id,String nom, String prenom , String tel,String loginid,String mdp) {
+	public Vendeur(String id,String nom, String prenom , String tel,double ventes,String loginid,String mdp) {
 		super();
 		this.id=id;
 		this.nom=nom;
 		this.prenom=prenom;
 		this.tel=tel;
+		this.ventes=ventes;
 		this.loginid=loginid;
 		this.mdp=mdp;
 	}
 	public Vendeur() {
 		super();
+	}
+	
+	public double getVentes() {
+		return ventes;
+	}
+	public void setVentes(double ventes) {
+		this.ventes = ventes;
 	}
 	public String getId() {
 		return id;

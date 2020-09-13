@@ -130,7 +130,6 @@ public class LoginController {
 
         	 loginid =rs.getString("Log_Id");
 
-        	 loginid =rs.getString("iLog_Id");
 
              
              System.out.println("Successful login");
@@ -160,8 +159,8 @@ public class LoginController {
          rs = ps.executeQuery();
          if (rs.next()) {
 
-         	loginid =rs.getString("loginidv");
-				 
+         	rs.getString("loginidv");
+			loginid=rs.getString("Id_Vendeur");	 
              
              System.out.println("Successful login");
              return "Success";

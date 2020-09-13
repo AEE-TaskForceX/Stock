@@ -65,6 +65,9 @@ public class VenDeurController implements Initializable {
 	private TableColumn<Vendeur, String> telecolumn;
 	@FXML
 	private TableColumn<Vendeur, String> mdpcolumn;
+	private TableColumn<Vendeur, String> ventescolumn;
+
+	
 	@FXML
 	private TextField rechercher;
 
@@ -78,7 +81,7 @@ public class VenDeurController implements Initializable {
     	int rs = 0;
     	try {
     		
-    		String sql = "insert into client(Nom_Vendeur , Prenom_Vendeur , Tel_Vendeur , loginidv , mdpv ) values(?,?,?,?,?)";
+    		String sql = "insert into Vendeur(Nom_Vendeur , Prenom_Vendeur , Tel_Vendeur , loginidv , mdpv ) values(?,?,?,?,?)";
     		PreparedStatement stm = conn.prepareStatement(sql);
     		
     		stm.setString(1, cl.getNom());
@@ -166,7 +169,7 @@ public class VenDeurController implements Initializable {
     		
     		while (rs.next())
     		{
-    			data.add(new Vendeur(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ) );
+    			data.add(new Vendeur(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getDouble(5) ,  rs.getString(6),rs.getString(7) ) );
     			
     		}
     		conn.close();
@@ -179,6 +182,7 @@ public class VenDeurController implements Initializable {
     	nomcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("nom"));
     	prenomcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("prenom"));
     	idlogcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("loginid"));
+    	ventescolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("ventes"));
     	telecolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("tel"));
     	mdpcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("mdp"));
     	
@@ -406,7 +410,7 @@ private void loadDataDB() {
 		PreparedStatement pst=conn.prepareStatement("Select * from vendeur");
 		ResultSet rs=pst.executeQuery();
 		while(rs.next()) {
-			data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+			data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDouble(5),rs.getString(6),rs.getString(7)));
 		}
 	}
 	catch(SQLException ex){
@@ -428,7 +432,7 @@ private void search() {
 				PreparedStatement pst=conn.prepareStatement(sql);
 				ResultSet rs=pst.executeQuery();
 				while(rs.next()) {
-					data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+					data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDouble(5),rs.getString(6),rs.getString(7)));
 				}
 				table.setItems(data);
 			}catch(SQLException ex) {

@@ -10,7 +10,7 @@ public class Article {
 	private String ref;
 	private String desc;
 
-	public Article(String id,String nomfourni, String nomcat , String dateachat,int quantite,String prix,String ref,String desc) {
+	public Article(String id, String nomcat,String nomfourni , String dateachat,int quantite,String prix,String ref,String desc) {
 		super();
 		this.id=id;
 		this.nomfourni=nomfourni;
