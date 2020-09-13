@@ -165,6 +165,7 @@ public class CategorieController  implements Initializable{
     
     public void UpdateTable(){
     	try{
+    		//update
     		Connection conn = ConnectionDB.conDB();
 		String sql = "SELECT * FROM `categorie`" ;
 		PreparedStatement stm  = conn.prepareStatement(sql);
