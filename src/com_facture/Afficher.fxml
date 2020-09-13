@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="663.0" prefWidth="514.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com_facture.AfficherController">
+   <children>
+      <Label fx:id="l1" layoutX="281.0" layoutY="76.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l2" layoutX="281.0" layoutY="111.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l3" layoutX="281.0" layoutY="150.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l4" layoutX="281.0" layoutY="187.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l5" layoutX="281.0" layoutY="221.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l6" layoutX="281.0" layoutY="259.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l7" layoutX="281.0" layoutY="300.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l8" layoutX="281.0" layoutY="379.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l9" layoutX="281.0" layoutY="415.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l10" layoutX="281.0" layoutY="454.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l11" layoutX="281.0" layoutY="488.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l12" layoutX="281.0" layoutY="522.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l13" layoutX="281.0" layoutY="555.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Label fx:id="l131" layoutX="107.0" layoutY="555.0" text="MONTANT" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l121" layoutX="107.0" layoutY="522.0" text="TVA" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l111" layoutX="106.0" layoutY="488.0" text="METHODE PAIEMENT" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l101" layoutX="102.0" layoutY="454.0" text="QUANTITE" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l91" layoutX="105.0" layoutY="415.0" text="PRIX" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l81" layoutX="102.0" layoutY="379.0" text="REFERENCE" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l71" layoutX="104.0" layoutY="298.0" text="TELEPHONE" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l61" layoutX="102.0" layoutY="259.0" text="DATE FACTURE" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l51" layoutX="103.0" layoutY="221.0" text="PRENOM CLIENT" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l41" layoutX="104.0" layoutY="187.0" text="NOM CLIENT" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l31" layoutX="105.0" layoutY="150.0" text="ID VENDEUR" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l21" layoutX="105.0" layoutY="111.0" text="ID COMMANDE" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l14" layoutX="104.0" layoutY="76.0" text="ID FACTURE" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l711" layoutX="105.0" layoutY="336.0" text="DATE COMMANDE" textFill="#e17c23">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font></Label>
+      <Label fx:id="l14" layoutX="281.0" layoutY="336.0" text="Label" textFill="#5b0b79">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <Button layoutX="87.0" layoutY="588.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="52.0" prefWidth="138.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Imprimer" textFill="WHITE">
+         <effect>
+            <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="281.0" layoutY="588.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Envoyer Mail" textFill="WHITE">
+         <effect>
+            <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="190.0" layoutY="14.0" prefHeight="46.0" prefWidth="134.0" text="Facture" textFill="BLUEVIOLET">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

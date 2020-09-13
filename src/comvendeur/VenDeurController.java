@@ -176,6 +176,7 @@ public class VenDeurController implements Initializable {
     		
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
     	
 		idcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("id"));
