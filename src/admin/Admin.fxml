@@ -35,7 +35,7 @@
                         <Font name="Century Gothic" size="36.0" />
                      </font>
                   </Label>
-                  <Button layoutX="66.0" layoutY="222.0" mnemonicParsing="false" prefHeight="122.0" prefWidth="218.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonA.css" text="COMPTE" textFill="WHITE">
+                  <Button layoutX="66.0" layoutY="222.0" mnemonicParsing="false" onAction="#compte" prefHeight="122.0" prefWidth="218.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" stylesheets="@buttonA.css" text="COMPTE" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>

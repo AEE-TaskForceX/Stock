@@ -1,7 +1,11 @@
 package com_categorie;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
@@ -9,11 +13,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import com_article.ArticleController;
+import com_commande.CommandeController;
 import com_connection.ConnectionDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +33,12 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import projet.bin.Article;
 import projet.bin.Categorie;
+import projet.bin.Client;
+import projet.bin.Commande;
 import javafx.scene.control.TableView;
 
 import javafx.scene.control.TableColumn;
@@ -52,11 +68,11 @@ public class CategorieController  implements Initializable{
     	PreparedStatement st = null;
     	Categorie a = new Categorie();
     	
-    	String nom = typefield.getText() ; 
-    	String desc = chargefield.getText();
-    	a.setNom(nom);
-    	a.setDesc(desc);
-    	String rqt ="UPDATE categorie SET nom_cat=?, description = ?  WHERE nom_cat=?";
+    	String Nom = typefield.getText() ; 
+    	String Desc = chargefield.getText();
+    	a.setNom(Nom);
+    	a.setDesc(Desc);
+    	String rqt ="UPDATE categorie SET Nom_Cat=?, Description = ?  WHERE Nom_Cat=?";
     	try {
 			st = con.prepareStatement(rqt);
 			
@@ -91,10 +107,10 @@ public class CategorieController  implements Initializable{
 		    	PreparedStatement st = null;
 		    	Categorie a = new Categorie();
 		    	
-		    	String nom = typefield.getText() ; 
-		    	String desc = chargefield.getText();
-		    	a.setNom(nom);
-		    	a.setDesc(desc);
+		    	String Nom = typefield.getText() ; 
+		    	String Desc = chargefield.getText();
+		    	a.setNom(Nom);
+		    	a.setDesc(Desc);
 		    	String rqt ="Insert into categorie ( Nom_Cat, Description)  values(?,?) ";
 		    	try {
 					st = con.prepareStatement(rqt);
@@ -148,13 +164,29 @@ public class CategorieController  implements Initializable{
     
     
     public void UpdateTable(){
-    	
+    	try{
+    		Connection conn = ConnectionDB.conDB();
+		String sql = "SELECT * FROM `categorie`" ;
+		PreparedStatement stm  = conn.prepareStatement(sql);
+		ResultSet rs = stm.executeQuery();
+		table.getItems().removeAll(data);
+		while (rs.next())
+		{
+			data.add(new Categorie(rs.getString(1) , rs.getString(2)  ) );
+			
+		}
+		conn.close();
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	
     	col_cat.setCellValueFactory(new PropertyValueFactory<Categorie, String>("nom"));
 		col_desc.setCellValueFactory(new PropertyValueFactory<Categorie, String>("desc"));
 		
-		Connection con= ConnectionDB.conDB();
+		
         table.setItems(data);
-        
+
     }
     
     
@@ -195,38 +227,79 @@ public class CategorieController  implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		UpdateTable();
-		//search();
+		search();
 		
 	}
+	private void loadDataDB() {
+		data.clear();
+		try {
+			Connection conn = ConnectionDB.conDB();
+			PreparedStatement pst=conn.prepareStatement("Select * from categorie");
+			ResultSet rs=pst.executeQuery();
+			while(rs.next()) {
+				data.add(new Categorie(rs.getString(1),rs.getString(2)));
+			}
+		}
+		catch(SQLException ex){
+			Logger.getLogger(CategorieController.class.getName()).log(Level.SEVERE, null,ex);
+		}
+		table.setItems(data);
+	}
 	 @FXML
-	    void search() {          
-	    	col_cat.setCellValueFactory(new PropertyValueFactory<Categorie, String>("nom"));
-			col_desc.setCellValueFactory(new PropertyValueFactory<Categorie, String>("desc"));
-			
-	        
-			Connection con= ConnectionDB.conDB();
-	        table.setItems(dataList);
-	        FilteredList<Categorie> filteredData = new FilteredList<>(dataList, b -> true);  
-	        searchfield.textProperty().addListener((observable, oldValue, newValue) -> {
-	        	filteredData.setPredicate(Categorie -> {
-	    if (newValue == null || newValue.isEmpty()) {
-	     return true;
-	    }    
-	    String lowerCaseFilter = newValue.toLowerCase();
-	    
-	    if (Categorie.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-	    	return true; // recherche par type
-	   
-	    }                       
-	     else  
-	          	return false; // n'exits pas
-	   });
-	  });  
-	  SortedList<Categorie> sortedData = new SortedList<>(filteredData);  
-	  sortedData.comparatorProperty().bind(table.comparatorProperty());  
-	  table.setItems(sortedData);      
+	    void search() {    
+		 searchfield.setOnKeyReleased(e->{
+				if(searchfield.getText().equals("")) {
+					loadDataDB();
+				}
+				else {
+					data.clear();
+					String sql= "Select * from categorie where `Nom_Cat` LIKE '%"+searchfield.getText()+"%' " + "UNION Select * from categorie where Description LIKE '%"+searchfield.getText()+"%' ";
+					try {
+						Connection conn = ConnectionDB.conDB();
+						PreparedStatement pst=conn.prepareStatement(sql);
+						ResultSet rs=pst.executeQuery();
+						while(rs.next()) {
+							data.add(new Categorie(rs.getString(1),rs.getString(2)));
+						}
+						table.setItems(data);
+					}catch(SQLException ex) {
+						Logger.getLogger(CategorieController.class.getName()).log(Level.SEVERE, null,ex);
+					}
+				}
+						
+			}
+			);
 	    }
+	 @FXML
+		public void back(MouseEvent event) throws IOException {
+			// TODO Autogenerated
+			Parent homePage = FXMLLoader.load(getClass().getResource("/vendeur/Vendeur.fxml"));
+		    Scene homepageScene = new Scene(homePage);
+		    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    appStage.setScene(homepageScene);
+		    homepageScene.setFill(Color.TRANSPARENT);
+		    appStage.show();
+		}
+		@FXML
+	    private void handleButtonAction(MouseEvent event) {
+	       
+	            System.exit(0);
+	        }
 	
-	
+		 public void vider (MouseEvent event)
+		    {
+		    	try {
+		    		
+		    		typefield.clear();
+		    		chargefield.clear();
+		    	
 
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println(e.getMessage());
+				}
+		    	
+		    	
+		    	
+		    }
 }

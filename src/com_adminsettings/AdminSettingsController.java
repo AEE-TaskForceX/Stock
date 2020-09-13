@@ -1,14 +1,21 @@
 package com_adminsettings;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import projet.bin.Admin;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,8 +30,7 @@ public class AdminSettingsController {
 	@FXML
     private PasswordField newpassfield;
 
-    @FXML
-    private Button BackButton;
+  
 
   @FXML
     private TextField idfield;
@@ -56,7 +62,7 @@ public class AdminSettingsController {
     			a.setMdp(passo);
     			
     			String l=application.LoginController.getlogid();
-    	    	String rqt ="UPDATE admin SET Log_Id=? , Mdp=? WHERE id=?";
+    	    	String rqt ="UPDATE admin SET Log_Id=? , dp=? WHERE id=?";
     	    	
     	    	
     			try {
@@ -71,7 +77,7 @@ public class AdminSettingsController {
 					alert.setHeaderText(null);
 					alert.setContentText("Login Id et Mot De Passe sont changés");
 					alert.showAndWait();	
-					 Exitt();
+					 
 	    	  		
 	    			
     				
@@ -123,7 +129,7 @@ public class AdminSettingsController {
 	
 	
 	public  String checkoldpass() {
-		String rqtas ="Select * from Admin Where  Mdp=?";
+		String rqtas ="Select * from admin Where  mdp=?";
 	  	 try {
 				
 	  		st = con.prepareStatement(rqtas);
@@ -147,11 +153,18 @@ public class AdminSettingsController {
 	  }
 
     @FXML
-    void Retour(ActionEvent event) {
-    	Exitt() ;
+    void Retour(MouseEvent event) throws IOException {
+    	Parent homePage = FXMLLoader.load(getClass().getResource("/admin/Admin.fxml"));
+	    Scene homepageScene = new Scene(homePage);
+	    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	    appStage.setScene(homepageScene);
+	    homepageScene.setFill(Color.TRANSPARENT);
+	    appStage.show();
     }
-    void Exitt() {
-        Stage stage = (Stage) BackButton.getScene().getWindow();
-        stage.close();
-    }
+    @FXML
+    private void handleButtonAction(MouseEvent event) {
+       
+            System.exit(0);
+        }
+   
 }
