@@ -60,7 +60,7 @@
                      </font>
                   </TextArea>
                   <ComboBox fx:id="combocat" layoutX="46.0" layoutY="59.0" prefHeight="46.0" prefWidth="169.0" promptText="Categorie" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
-                  <DatePicker fx:id="datefield" layoutX="521.0" layoutY="59.0" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
+                  <DatePicker fx:id="datefield" layoutX="521.0" layoutY="59.0" prefHeight="46.0" prefWidth="169.0" promptText="Date d'Achat" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
                   <ComboBox fx:id="combofourn" layoutX="285.0" layoutY="59.0" prefHeight="46.0" prefWidth="169.0" promptText="Fournisseur" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
                </children>
                <effect>

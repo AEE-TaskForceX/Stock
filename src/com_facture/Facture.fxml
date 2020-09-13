@@ -9,11 +9,94 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="778.0" prefWidth="1331.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com_commande.CommandeController">
+<AnchorPane prefHeight="778.0" prefWidth="1331.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com_facture.FactureController">
    <children>
       <AnchorPane layoutX="40.0" layoutY="7.0" prefHeight="872.0" prefWidth="1270.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="7.0">
          <children>
-            <AnchorPane layoutX="17.0" layoutY="5.0" prefHeight="706.0" prefWidth="897.0" style="-fx-background-color: linear-gradient(to right top,#3A1C71,#FDBB2D); -fx-background-radius: 1em;" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="5.0">
+            <AnchorPane layoutX="956.0" layoutY="44.0" maxWidth="738.0" prefHeight="634.0" prefWidth="362.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
+               <children>
+                  <TextField fx:id="idcommtxt" disable="true" layoutX="57.0" layoutY="84.0" prefHeight="37.0" prefWidth="279.0" promptText="Id Commande" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="idvendtxt" disable="true" layoutX="57.0" layoutY="121.0" prefHeight="37.0" prefWidth="279.0" promptText="Id Vendeur" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="nomtxt" disable="true" layoutX="57.0" layoutY="158.0" prefHeight="37.0" prefWidth="279.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="prenomtxt" disable="true" layoutX="57.0" layoutY="195.0" prefHeight="37.0" prefWidth="279.0" promptText="Prenom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="teltxt" disable="true" layoutX="57.0" layoutY="232.0" prefHeight="37.0" prefWidth="279.0" promptText="Tel Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="131.0" layoutY="1.0" prefHeight="46.0" prefWidth="134.0" text="Facture" textFill="BLUEVIOLET">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="36.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="326.0" layoutY="45.0" size="2em" />
+                  <TextField fx:id="referencetxt" disable="true" layoutX="57.0" layoutY="306.0" prefHeight="37.0" prefWidth="279.0" promptText="Reference Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <DatePicker fx:id="datefield" disable="true" layoutX="57.0" layoutY="269.0" prefHeight="37.0" prefWidth="279.0" promptText="Date de Commande" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
+                  <TextField fx:id="prixtxt" disable="true" layoutX="57.0" layoutY="343.0" prefHeight="37.0" prefWidth="279.0" promptText="Prix Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="qutttxt" disable="true" layoutX="57.0" layoutY="380.0" prefHeight="37.0" prefWidth="279.0" promptText="Quantité Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="mdp" layoutX="57.0" layoutY="417.0" prefHeight="37.0" prefWidth="279.0" promptText="Méthode de Paiement" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
+                  <ComboBox fx:id="tva" layoutX="57.0" layoutY="454.0" prefHeight="37.0" prefWidth="279.0" promptText="TVA" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
+                  <Button layoutX="254.0" layoutY="550.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Supprimer" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="147.0" layoutY="550.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Modifier" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="39.0" layoutY="550.0" mnemonicParsing="false" onAction="#insertdata" prefHeight="52.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Ajouter" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+               <effect>
+                  <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="17.0" layoutY="5.0" prefHeight="706.0" prefWidth="977.0" style="-fx-background-color: linear-gradient(to right top,#3A1C71,#FDBB2D); -fx-background-radius: 1em;" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="5.0">
                <children>
                   <Label layoutX="36.0" layoutY="14.0" text="DS" textFill="#e4e4e3">
                      <font>
@@ -30,167 +113,73 @@
                         <Image url="@../a.png" />
                      </image>
                   </ImageView>
-                  <TableView fx:id="tabcom" layoutX="14.0" layoutY="441.0" prefHeight="265.0" prefWidth="823.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@../com_client/Table.css">
+                  <TableView fx:id="tabcom" layoutX="25.0" layoutY="111.0" prefHeight="234.0" prefWidth="927.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@../com_client/Table.css">
                      <columns>
-                        <TableColumn fx:id="idcommcol" prefWidth="35.0" text="ID" />
-                        <TableColumn fx:id="idcliencol" prefWidth="54.0" text="ID Client" />
-                        <TableColumn fx:id="idarticlcl" prefWidth="67.0" text="Id Article" />
-                        <TableColumn fx:id="datecl" prefWidth="130.0" text="Date De Commande" />
-                        <TableColumn fx:id="Nomcl" prefWidth="77.0" text="Nom Client" />
-                        <TableColumn fx:id="prenomcl" prefWidth="99.0" text="Prénom Client" />
-                        <TableColumn fx:id="telcl" prefWidth="67.0" text="Tel Client" />
-                        <TableColumn fx:id="referencecl" prefWidth="109.0" text="Réference Article" />
-                        <TableColumn fx:id="prixcl" prefWidth="34.0" text="Prix" />
+                        <TableColumn fx:id="idcommcol" prefWidth="55.0" text="ID" />
+                        <TableColumn fx:id="idcliencol" prefWidth="57.0" text="ID Client" />
+                        <TableColumn fx:id="idarticlcl" prefWidth="77.0" text="Id Article" />
+                        <TableColumn fx:id="datecl" prefWidth="127.0" text="Date De Commande" />
+                        <TableColumn fx:id="Nomcl" prefWidth="79.0" text="Nom Client" />
+                        <TableColumn fx:id="prenomcl" prefWidth="105.0" text="Prénom Client" />
+                        <TableColumn fx:id="telcl" prefWidth="77.0" text="Tel Client" />
+                        <TableColumn fx:id="referencecl" prefWidth="112.0" text="Réference Article" />
+                        <TableColumn fx:id="prixcl" prefWidth="42.0" text="Prix" />
                         <TableColumn fx:id="quantitecl" prefWidth="55.0" text="Quantité" />
-                        <TableColumn fx:id="detailcl" prefWidth="94.0" text="Détails" />
+                        <TableColumn fx:id="detailcl" prefWidth="137.0" text="Détails" />
                      </columns>
                      <effect>
                         <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />
                      </effect>
                   </TableView>
-                  <TextField fx:id="rechercher" layoutX="391.0" layoutY="391.0" prefHeight="46.0" prefWidth="405.0" promptText="Rechercher Commande" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../com_client/rechercher.css">
+                  <TextField fx:id="rechercher" layoutX="202.0" layoutY="68.0" prefHeight="31.0" prefWidth="573.0" promptText="Rechercher Commande" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../com_client/rechercher.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="exit" layoutX="865.0" onMouseClicked="#handleButtonAction" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
+                  <Label fx:id="exit" layoutX="943.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic" size="36.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="796.0" layoutY="422.0" size="2em" />
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="774.0" layoutY="31.0" size="2em" />
-                  <TextField fx:id="RechArt" layoutX="605.0" prefHeight="46.0" prefWidth="169.0" promptText="Rechercher Facture" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../com_client/rechercher.css">
+                  <TextField fx:id="RechArt" layoutX="202.0" layoutY="360.0" prefHeight="31.0" prefWidth="573.0" promptText="Rechercher Facture" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../com_client/rechercher.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="26.0" layoutY="377.0" onDragDetected="#back" onMouseClicked="#back" size="2em" />
-                  <TableView fx:id="tabfac" layoutY="83.0" prefHeight="300.0" prefWidth="926.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@../com_client/Table.css">
+                  <TableView fx:id="tabfac" layoutX="25.0" layoutY="404.0" prefHeight="240.0" prefWidth="927.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@../com_client/Table.css">
                      <columns>
-                        <TableColumn fx:id="idfaccl1" prefWidth="35.0" text="ID" />
-                        <TableColumn fx:id="idcommcl1" text="ID  Commande" />
-                        <TableColumn fx:id="idvendcl1" prefWidth="73.0" text="Id Vendeur" />
-                        <TableColumn fx:id="datecl1" prefWidth="88.0" text="Date Facture" />
-                        <TableColumn fx:id="Nomcl1" prefWidth="97.0" text="Nom Client" />
-                        <TableColumn fx:id="prenomcl1" prefWidth="89.0" text="Prénom Client" />
-                        <TableColumn fx:id="telcl1" prefWidth="67.0" text="Tel Client" />
-                        <TableColumn fx:id="referencecl1" prefWidth="109.0" text="Réference Article" />
-                        <TableColumn fx:id="prixcl1" prefWidth="34.0" text="Prix" />
-                        <TableColumn fx:id="quantitecl1" prefWidth="55.0" text="Quantité" />
-                        <TableColumn fx:id="methcl1" prefWidth="79.0" text="Methode de paiement" />
-                        <TableColumn fx:id="tvacl1" prefWidth="46.0" text="TVA" />
-                        <TableColumn fx:id="montantcl1" prefWidth="75.0" text="Montant" />
+                        <TableColumn fx:id="idfaccl1" prefWidth="35.0" text="Id" />
+                        <TableColumn fx:id="idcommcl1" prefWidth="91.0" text="Id Commande" />
+                        <TableColumn fx:id="idvendcl1" prefWidth="76.0" text="Id Vendeur" />
+                        <TableColumn fx:id="datecl1" prefWidth="84.0" text="Date Facture" />
+                        <TableColumn fx:id="Nomcl1" prefWidth="73.0" text="Nom Client" />
+                        <TableColumn fx:id="prenomcl1" prefWidth="86.0" text="Prénom Client" />
+                        <TableColumn fx:id="telcl1" prefWidth="60.0" text="Tel Client" />
+                        <TableColumn fx:id="datefac" prefWidth="69.0" text="Date Com" />
+                        <TableColumn fx:id="referencecl1" prefWidth="37.0" text="Réf" />
+                        <TableColumn fx:id="prixcl1" prefWidth="37.0" text="Prix" />
+                        <TableColumn fx:id="quantitecl1" prefWidth="57.0" text="Quantité" />
+                        <TableColumn fx:id="methcl1" prefWidth="131.0" text="Méthode paiement" />
+                        <TableColumn fx:id="tvacl1" prefWidth="29.0" text="TVA" />
+                        <TableColumn fx:id="montantcl1" prefWidth="60.0" text="Montant" />
                      </columns>
                      <effect>
                         <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />
                      </effect>
                   </TableView>
+                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="787.0" layoutY="389.0" size="2em" />
+                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="787.0" layoutY="92.0" size="2em" wrappingWidth="22.285715103149414" />
+                  <Button layoutX="330.0" layoutY="644.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="318.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Afficher" textFill="WHITE">
+                     <effect>
+                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
+                     </effect>
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Button>
                </children>
                <effect>
                   <DropShadow height="44.595" radius="32.94625" spread="0.28" width="89.19" />
-               </effect>
-            </AnchorPane>
-            <AnchorPane layoutX="956.0" layoutY="12.0" maxWidth="738.0" prefHeight="698.0" prefWidth="381.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
-               <children>
-                  <Button layoutX="38.0" layoutY="652.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="31.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Ajouter" textFill="WHITE">
-                     <effect>
-                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
-                     </effect>
-                     <font>
-                        <Font name="Century Gothic" size="18.0" />
-                     </font>
-                  </Button>
-                  <TextField fx:id="idfactxt" layoutX="52.0" layoutY="47.0" prefHeight="37.0" prefWidth="279.0" promptText="Id Facture" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="idcommtxt" layoutX="57.0" layoutY="93.0" prefHeight="37.0" prefWidth="279.0" promptText="Id Commande" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="idvendtxt" layoutX="57.0" layoutY="143.0" prefHeight="37.0" prefWidth="279.0" promptText="Id Vendeur" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="nomtxt" layoutX="57.0" layoutY="236.0" prefHeight="31.0" prefWidth="279.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="prenomtxt" layoutX="57.0" layoutY="280.0" prefHeight="37.0" prefWidth="279.0" promptText="Prenom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="teltxt" layoutX="57.0" layoutY="325.0" prefHeight="37.0" prefWidth="279.0" promptText="Tel Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextArea fx:id="details" layoutX="57.0" layoutY="427.0" prefHeight="31.0" prefWidth="279.0" promptText="Prix Article" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@../com_commande/textarea.css">
-                     <font>
-                        <Font name="Century Gothic" size="14.0" />
-                     </font>
-                  </TextArea>
-                  <Button layoutX="155.0" layoutY="652.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Modifier" textFill="WHITE">
-                     <effect>
-                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
-                     </effect>
-                     <font>
-                        <Font name="Century Gothic" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="266.0" layoutY="652.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Supprimer" textFill="WHITE">
-                     <effect>
-                        <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
-                     </effect>
-                     <font>
-                        <Font name="Century Gothic" size="18.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="74.0" layoutY="1.0" prefHeight="46.0" prefWidth="234.0" text="Facture" textFill="BLUEVIOLET">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font name="Century Gothic" size="36.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="326.0" layoutY="45.0" onMouseClicked="#vider" size="2em" />
-                  <TextField fx:id="referencetxt" layoutX="57.0" layoutY="372.0" prefHeight="37.0" prefWidth="279.0" promptText="Reference Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Label fx:id="prixtxt" layoutX="57.0" layoutY="425.0" prefHeight="17.0" prefWidth="279.0" textFill="#ab1515" />
-                  <DatePicker fx:id="datetxt" layoutX="57.0" layoutY="197.0" prefHeight="31.0" prefWidth="279.0" promptText="Date Facture " />
-                  <TextArea fx:id="quantitetxt" layoutX="57.0" layoutY="467.0" prefHeight="31.0" prefWidth="279.0" promptText="Quantite" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@../com_commande/textarea.css">
-                     <font>
-                        <Font name="Century Gothic" size="14.0" />
-                     </font>
-                  </TextArea>
-                  <TextArea fx:id="methtxt" layoutX="57.0" layoutY="516.0" prefHeight="37.0" prefWidth="279.0" promptText="Methode de Paiement" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@../com_commande/textarea.css">
-                     <font>
-                        <Font name="Century Gothic" size="14.0" />
-                     </font>
-                  </TextArea>
-                  <TextArea fx:id="tvatxt" layoutX="57.0" layoutY="567.0" prefHeight="31.0" prefWidth="279.0" promptText="TVA" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@../com_commande/textarea.css">
-                     <font>
-                        <Font name="Century Gothic" size="14.0" />
-                     </font>
-                  </TextArea>
-                  <TextArea fx:id="montanttxt" layoutX="57.0" layoutY="607.0" prefHeight="31.0" prefWidth="279.0" promptText="Montant" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@../com_commande/textarea.css">
-                     <font>
-                        <Font name="Century Gothic" size="14.0" />
-                     </font>
-                  </TextArea>
-               </children>
-               <effect>
-                  <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
                </effect>
             </AnchorPane>
          </children>

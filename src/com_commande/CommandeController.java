@@ -470,7 +470,7 @@ public class CommandeController implements Initializable{
 		    	int rs = 0;
 		    	try {
 		    		
-		    		String sql = "insert into commande (id_client , Id_Article , Date_Commande, Nom_Client , Prenom_Client , Tel_Client	,Ref_Article,	Prix_Article, Details ) values(?,?,?,?,?,?,?,?,?)";
+		    		String sql = "insert into commande (id_client , Id_Article , Date_Commande, Nom_Client , Prenom_Client , Tel_Client	,Ref_Article,	Prix_Article, Quantite , Details ) values(?,?,?,?,?,?,?,?,?,?)";
 		    		PreparedStatement stm = conn.prepareStatement(sql);
 		    		
 		    		stm.setString(1, cl.getIdcli());
@@ -481,7 +481,8 @@ public class CommandeController implements Initializable{
 		    		stm.setString(6, cl.getTelcli());
 		    		stm.setString(7, cl.getRefarticle());
 		    		stm.setString(8, cl.getPrix());
-		    		stm.setString(9, cl.getDetails());
+		    		stm.setInt(9, cl.getQuantite());
+		    		stm.setString(10, cl.getDetails());
 		    		
 		    		
 		    		
@@ -596,7 +597,7 @@ public class CommandeController implements Initializable{
 		    	int d = 0;
 		    	try {
 		    		
-		    		String sql = "update commande set  id_client = ? , Id_Article= ?  , Date_Commande = ? , Nom_Client = ? , Prenom_Client = ? , Tel_Client	= ? , Ref_Article = ?  , Prix_Article =? , Details = ? where id_commande = ?  ";
+		    		String sql = "update commande set  id_client = ? , Id_Article= ?  , Date_Commande = ? , Nom_Client = ? , Prenom_Client = ? , Tel_Client	= ? , Ref_Article = ?  , Prix_Article =? , Quantite = ? , Details = ? where id_commande = ?  ";
 		    		PreparedStatement stm = conn.prepareStatement(sql);
 		    		
 		    		stm.setString(1, cl.getIdcli());
@@ -607,8 +608,9 @@ public class CommandeController implements Initializable{
 		    		stm.setString(6, cl.getTelcli());
 		    		stm.setString(7, cl.getRefarticle());
 		    		stm.setString(8, cl.getPrix());
-		    		stm.setString(9, cl.getDetails());
-		    		stm.setString(10, idd);
+		    		stm.setInt(9, cl.getQuantite());
+		    		stm.setString(10, cl.getDetails());
+		    		stm.setString(11, idd);
 		    		
 		    		 d = stm.executeUpdate();
 		    		

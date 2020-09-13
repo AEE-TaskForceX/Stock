@@ -102,7 +102,7 @@ private void factures(ActionEvent event) throws IOException {
         
         stage.close();
 
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_factures/Factures.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_facture/Facture.fxml")));
         stage.setScene(scene);
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
