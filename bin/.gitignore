@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-/a.png
-=======
-/fontawesomefx-8.2.jar
-/mysql-connector-java-8.0.19.jar
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 /admin/
 /application/
 /com_adminsettings/
@@ -14,10 +8,5 @@
 /com_connection/
 /com_fournisseur/
 /comvendeur/
-<<<<<<< HEAD
-/fontawesomefx-8.2.jar
-/mysql-connector-java-8.0.19.jar
-=======
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 /projet/
 /vendeur/

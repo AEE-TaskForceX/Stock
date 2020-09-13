@@ -58,7 +58,7 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextArea fx:id="details" layoutX="57.0" layoutY="430.0" prefHeight="91.0" prefWidth="279.0" promptText="Détails de la commande" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@textarea.css">
+                  <TextArea fx:id="details" layoutX="57.0" layoutY="440.0" prefHeight="81.0" prefWidth="279.0" promptText="Détails de la commande" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@textarea.css">
                      <font>
                         <Font name="Century Gothic" size="14.0" />
                      </font>
@@ -88,6 +88,12 @@
                      </effect>
                   </Label>
                   <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="326.0" layoutY="45.0" onMouseClicked="#vider" size="2em" />
+                  <TextField fx:id="quanttarticle" layoutX="57.0" layoutY="379.0" prefHeight="46.0" prefWidth="279.0" promptText="Quantité Artcile" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="lbl" layoutX="57.0" layoutY="425.0" prefHeight="17.0" prefWidth="279.0" textFill="#ab1515" />
                </children>
                <effect>
                   <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
@@ -119,9 +125,10 @@
                         <TableColumn fx:id="Nom" prefWidth="77.0" text="Nom Client" />
                         <TableColumn fx:id="prenom" prefWidth="99.0" text="Prénom Client" />
                         <TableColumn fx:id="tel" prefWidth="67.0" text="Tel Client" />
-                        <TableColumn fx:id="reference" prefWidth="110.0" text="Réference Article" />
-                        <TableColumn fx:id="prix" prefWidth="59.0" text="Prix" />
-                        <TableColumn fx:id="detail" prefWidth="121.0" text="Détails" />
+                        <TableColumn fx:id="reference" prefWidth="109.0" text="Réference Article" />
+                        <TableColumn fx:id="prix" prefWidth="34.0" text="Prix" />
+                        <TableColumn fx:id="quantte" prefWidth="55.0" text="Quantité" />
+                        <TableColumn fx:id="detail" prefWidth="94.0" text="Détails" />
                      </columns>
                      <effect>
                         <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />

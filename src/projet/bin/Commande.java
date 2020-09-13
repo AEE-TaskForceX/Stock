@@ -11,11 +11,11 @@ public class Commande {
 	private String idarticle;
 	private String refarticle;
 	private String prix;
-	private String quantite;
+	private int quantite;
 
 
 
-	public Commande(String id,String idcli,String idarticle, String datecom, String nomcli, String prenomcli , String telcli,String details,String prix,String quantite,  String refarticle) {
+	public Commande(String id,String idcli,String idarticle, String datecom, String nomcli, String prenomcli , String telcli,String details,String prix,int quantite,  String refarticle) {
 		super();
 		this.id=id;
 		this.idcli=idcli;
@@ -35,10 +35,10 @@ public class Commande {
 		return idarticle;
 	}
 	
-	public String getQuantite() {
+	public int getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(String quantite) {
+	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
 	public void setIdarticle(String idarticle) {

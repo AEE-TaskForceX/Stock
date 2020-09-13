@@ -45,6 +45,10 @@ import javafx.scene.control.TableColumn;
 
 public class CommandeController implements Initializable{
 	@FXML
+	private Label lbl;
+	@FXML
+	private TextField quanttarticle;
+	@FXML
 	private TextField idclient;
 	@FXML
 	private TextField nomclient;
@@ -62,6 +66,8 @@ public class CommandeController implements Initializable{
 	private TextArea details;
 	@FXML
 	private TableView <Commande>tabcom;
+	@FXML
+	private TableColumn <Commande,String>quantt;
 	@FXML
 	private TableColumn <Commande,String>idcomm;
 	@FXML
@@ -212,7 +218,7 @@ public class CommandeController implements Initializable{
     		tabcom.getItems().removeAll(dataCom);
     		while (rs.next())
     		{
-    			dataCom.add(new Commande(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6), rs.getString(7) ,  rs.getString(8), rs.getString(9) ,  rs.getString(10) ) );
+    			dataCom.add(new Commande(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6), rs.getString(7) ,  rs.getString(8), rs.getString(9) ,  rs.getInt(10),  rs.getString(11) ) );
     			
     		}
     		conn.close();
@@ -263,6 +269,7 @@ public class CommandeController implements Initializable{
 	    		refarticle.clear();
 	    		prixarticle.clear();
 	    		details.clear();
+	    		quanttarticle.clear();
 
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -300,7 +307,8 @@ public class CommandeController implements Initializable{
 					idarticle.setText(l.getId());
 					refarticle.setText(l.getNomcat());
 					prixarticle.setText(l.getPrix());
-					
+					String QUTT = Integer.toString(l.getQuantite());
+					quanttarticle.setText(QUTT);
 				
 					
 				
@@ -324,6 +332,8 @@ public class CommandeController implements Initializable{
 					prenomclient.setText(c.getPrenomcli());
 					telephoneclient.setText(c.getTelcli());
 					details.setText(c.getDetails());
+					String QUTT = Integer.toString(c.getQuantite());
+					quanttarticle.setText(QUTT);
 				
 				}
 				
@@ -419,7 +429,7 @@ public class CommandeController implements Initializable{
 				PreparedStatement pst=conn.prepareStatement("Select * from commande");
 				ResultSet rs=pst.executeQuery();
 				while(rs.next()) {
-					dataCom.add(new Commande(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)));
+					dataCom.add(new Commande(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10),rs.getString(11)));
 				}
 			}
 			catch(SQLException ex){
@@ -441,7 +451,7 @@ public class CommandeController implements Initializable{
 						PreparedStatement pst=conn.prepareStatement(sql);
 						ResultSet rs=pst.executeQuery();
 						while(rs.next()) {
-							dataCom.add(new Commande(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)));
+							dataCom.add(new Commande(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10),rs.getString(11)));
 						}
 						tabcom.setItems(dataCom);
 					}catch(SQLException ex) {
@@ -491,6 +501,12 @@ public class CommandeController implements Initializable{
 			        System.out.println("id du article a modifier"+idd);
 		    	return idd;
 		    }
+		    public int quantity() {
+		    	 Article selected =tabart.getSelectionModel().getSelectedItem();
+			        int quantity = selected.getQuantite();
+			        System.out.println("quantity du article "+quantity);
+		    	return quantity;
+		    }
 		
 		@FXML
 		public void ajouter(ActionEvent event) throws SQLException {
@@ -506,7 +522,18 @@ public class CommandeController implements Initializable{
 	      String PRIXARTICLE=prixarticle.getText();
 	      String DETAILS=details.getText();
 	      String DATE=dateemp.toString();
-	      
+	      String QUANTITE=quanttarticle.getText();
+	      int Quant=Integer.parseInt(QUANTITE);
+	    if(quantity()<Quant) {
+	    	lbl.setText("Quantité saisie dépasse la quantité d'article");
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Quantité d'article");
+            alert.setHeaderText("Information");
+            alert.setContentText("Saisissez une quantité inférieure ou égale à "+quantity());
+            alert.showAndWait();
+	    }
+	    else {
+	    	lbl.setText("");
 		 Commande dm = new Commande();
 	      
 	     
@@ -519,7 +546,7 @@ public class CommandeController implements Initializable{
 	      dm.setIdarticle(IDARTICLE);
 	      dm.setRefarticle(REFARTICLE);
 	      dm.setPrix(PRIXARTICLE);
-	      
+	      dm.setQuantite(Quant);
 
 	      int status= insert(dm);
 	      if(status>0){
@@ -530,7 +557,7 @@ public class CommandeController implements Initializable{
 	    	  l.setId(IDARTICLE);
 	    	  Article li =tabart.getItems().get(tabart.getSelectionModel().getSelectedIndex());
 	    	  int quantite= li.getQuantite();
-	    	  l.setQuantite(quantite-1);
+	    	  l.setQuantite(quantite-Quant);
 	    	  
 	    	  String sql="UPDATE `article` SET Quantite=? WHERE Id_Article=? ";
 	    	  Connection conn = ConnectionDB.conDB();
@@ -558,7 +585,7 @@ public class CommandeController implements Initializable{
 	      }
 	      viewCom();
 			viewArt();
-		
+	    }
 		}
 		
 		
@@ -599,6 +626,11 @@ public class CommandeController implements Initializable{
 			
 		   public int qutt() throws SQLException {
 			   
+			   
+			   Commande selected =tabcom.getSelectionModel().getSelectedItem();
+		        int quantt = selected.getQuantite();
+		        System.out.println("quantite du article a modifier"+quantt);
+			   
 	    		Connection conne = ConnectionDB.conDB();
 	    		PreparedStatement ps = null;
 	    		 ResultSet rs = null;
@@ -613,7 +645,7 @@ public class CommandeController implements Initializable{
 	             rs = ps.executeQuery();
 	             if (rs.next()) {
 	            	 
-	            	 quttt =rs.getInt("Quantite")+1;
+	            	 quttt =rs.getInt("Quantite")+quantt;
 	                 
 	            	 System.out.println("qutt"+quttt);
 	            	 
@@ -641,8 +673,19 @@ public class CommandeController implements Initializable{
 			      String PRIXARTICLE=prixarticle.getText();
 			      String DETAILS=details.getText();
 			      String DATE=dateemp.toString();
+			      String QUANTITE=quanttarticle.getText();
+			      int Quant=Integer.parseInt(QUANTITE);
 			     // String logid = LoginController.getlogid();
-			   
+			      if(quantity()<Quant) {
+				    	lbl.setText("Quantité saisie dépasse la quantité d'article");
+			            Alert alert = new Alert (Alert.AlertType.ERROR);
+			            alert.setTitle("Quantité d'article");
+			            alert.setHeaderText("Information");
+			            alert.setContentText("Saisissez une quantité inférieure ou égale à "+quantity());
+			            alert.showAndWait();
+				    }
+				    else {
+				    	lbl.setText("");
 			      
 			      Commande dm = new Commande();
 			      
@@ -656,7 +699,7 @@ public class CommandeController implements Initializable{
 			      dm.setIdarticle(IDARTICLE);
 			      dm.setRefarticle(REFARTICLE);
 			      dm.setPrix(PRIXARTICLE);
-			      
+			      dm.setQuantite(Quant);
 		    	
 		    	
 		    	 Commande selected =tabcom.getSelectionModel().getSelectedItem();
@@ -691,7 +734,7 @@ public class CommandeController implements Initializable{
 		    	  l.setId(IDARTICLE);
 		    	  Article li =tabart.getItems().get(tabart.getSelectionModel().getSelectedIndex());
 		    	  int quantite= li.getQuantite();
-		    	  l.setQuantite(quantite-1);
+		    	  l.setQuantite(quantite-Quant);
 		    	  
 		    	  String sql="UPDATE `article` SET Quantite=? WHERE Id_Article=? ";
 		    	  Connection conn = ConnectionDB.conDB();
@@ -724,7 +767,7 @@ public class CommandeController implements Initializable{
 		    	
 		    	  viewCom();
 					viewArt();
-		    	
+				    }
 			}
 		    public static int supp(String id)
 			{
