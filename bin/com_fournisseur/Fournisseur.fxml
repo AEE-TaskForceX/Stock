@@ -59,7 +59,6 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="664.0" layoutY="162.0" onMouseClicked="#vider" size="2em" />
                </children>
                <effect>
                   <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
@@ -89,11 +88,10 @@
                   </Label>
                   <TableView fx:id="table" layoutX="146.0" layoutY="102.0" prefHeight="265.0" prefWidth="564.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@../com_client/Table.css">
                      <columns>
-                        <TableColumn fx:id="idcolumn" prefWidth="68.0" text="ID" />
-                        <TableColumn fx:id="nomcolumn" prefWidth="79.0" text="NOM" />
-                        <TableColumn fx:id="adressecolumn" prefWidth="123.0" text="ADRESSE POSTALE" />
-                        <TableColumn fx:id="emailcolumn" prefWidth="158.0" text="ADRESSE EMAIL" />
-                        <TableColumn fx:id="telcolumn" prefWidth="134.0" text="NUMERO TEL" />
+                        <TableColumn fx:id="nomcolumn" prefWidth="123.0" text="NOM" />
+                        <TableColumn fx:id="adressecolumn" prefWidth="147.0" text="ADRESSE POSTALE" />
+                        <TableColumn fx:id="emailcolumn" prefWidth="144.0" text="ADRESSE EMAIL" />
+                        <TableColumn fx:id="telcolumn" prefWidth="148.0" text="NUMERO TEL" />
                      </columns>
                      <effect>
                         <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />
@@ -104,8 +102,6 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="526.0" layoutY="80.0" size="2em" />
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="36.0" layoutY="364.0" onMouseClicked="#back" size="2em" />
                   <Label layoutX="7.0" layoutY="191.0" text="Fournisseurs" textFill="#e4e4e3">
                      <effect>
                         <DropShadow spread="0.35" />

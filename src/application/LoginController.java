@@ -1,7 +1,6 @@
 package application;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -128,7 +127,7 @@ public class LoginController {
          if (rs.next()) {
 
 
-        	 loginid =rs.getString("Log_Id");
+        	 loginid =rs.getString("id");
 
 
              

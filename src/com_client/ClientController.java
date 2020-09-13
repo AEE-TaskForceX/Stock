@@ -94,7 +94,7 @@ public class ClientController  implements Initializable {
     	int rs = 0;
     	try {
     		
-    		String sql = "insert into client(id_client , nom , prenom , adresse , telephone , email ) values(?,?,?,?,?,?)";
+    		String sql = "insert into client( Nom_Client , Prenom_Client , Adresse_Client , Tel_Client , Mail_Client ) values(?,?,?,?,?)";
     		PreparedStatement stm = conn.prepareStatement(sql);
     		
     		stm.setString(1, cl.getNom());
@@ -211,7 +211,7 @@ public class ClientController  implements Initializable {
     	int d = 0;
     	try {
     		
-    		String sql = "update client set  nom = ? , prenom= ?  , adresse = ? , telephone = ? , email = ? where id_client = ?  ";
+    		String sql = "update client set  Nom_Client = ? , Prenom_Client= ?  , Adresse_Client = ? , Tel_Client = ? , Mail_Client = ? where Id_Client = ?  ";
     		PreparedStatement stm = conn.prepareStatement(sql);
     		
     		stm.setString(1, cl.getNom());
@@ -219,7 +219,7 @@ public class ClientController  implements Initializable {
     		stm.setString(3, cl.getAdresse());
     		stm.setString(4, cl.getTelephone());
     		stm.setString(5, cl.getEmail());
-    		stm.setString(5, idd);
+    		stm.setString(6, idd);
     		
     		
     		 d = stm.executeUpdate();
