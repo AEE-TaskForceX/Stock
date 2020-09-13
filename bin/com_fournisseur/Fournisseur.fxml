@@ -81,7 +81,7 @@
                         <Image url="@../a.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="exit" layoutX="822.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
+                  <Label fx:id="exit" layoutX="822.0" onMouseClicked="#handleButtonAction" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic" size="36.0" />
                      </font>

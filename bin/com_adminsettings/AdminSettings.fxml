@@ -66,7 +66,6 @@
                         <Font name="Century Gothic" size="48.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="27.0" layoutY="372.0" onMouseClicked="#Retour" size="2em" />
                </children>
                <effect>
                   <DropShadow height="0.0" radius="21.7975" spread="0.28" width="89.19" />

@@ -392,10 +392,10 @@ public class ArticleController implements Initializable {
 	    homepageScene.setFill(Color.TRANSPARENT);
 	    appStage.show();
 	}
-	@FXML
-    private void handleButtonAction(MouseEvent event) {
-       
-            System.exit(0);
-        }
+	  public void handleButtonAction(MouseEvent event) {
+	        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+	        appStage.close();
+		}
 
 }

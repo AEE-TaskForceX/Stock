@@ -443,5 +443,9 @@ private void search() {
 	}
 	);
 }
-	
+public void handleButtonAction(MouseEvent event) {
+    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+    appStage.close();
+}
 }

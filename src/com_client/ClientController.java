@@ -179,7 +179,8 @@ public class ClientController  implements Initializable {
     		String sql = "SELECT * FROM `client`" ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
-    		
+    		table.getItems().removeAll(data);
+
     		while (rs.next())
     		{
     			data.add(new Client(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ) );
@@ -455,9 +456,9 @@ private void search() {
 	}
 	);
 }
-@FXML
-private void handleButtonAction(MouseEvent event) {
-   
-        System.exit(0);
-    }
+public void handleButtonAction(MouseEvent event) {
+    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+    appStage.close();
+}
 }

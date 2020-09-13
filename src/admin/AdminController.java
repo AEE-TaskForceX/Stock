@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class AdminController {
 	@FXML
@@ -39,39 +40,33 @@ public class AdminController {
     private void compte(ActionEvent event) throws IOException {
        
 
-	    Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        
-        stage.close();
+		   Stage stage1 = new Stage();
+
 
         Scene scene;
 		
 			scene = new Scene(FXMLLoader.load(getClass().getResource("/com_adminsettings/AdminSettings.fxml")));
 		
-        stage.setScene(scene);
-       // stage.initStyle(StageStyle.TRANSPARENT);
-        scene.setFill(Color.TRANSPARENT);
-       
-       stage.show();
+			 stage1.setScene(scene);
+		        stage1.initStyle(StageStyle.TRANSPARENT);
+		        scene.setFill(Color.TRANSPARENT);
+		        stage1.show();
         
 	}
 	@FXML
     private void vendeurs(ActionEvent event) throws IOException  {
        
-		    Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            
-            stage.close();
+		   Stage stage1 = new Stage();
+
 
             Scene scene;
 			
 				scene = new Scene(FXMLLoader.load(getClass().getResource("/comvendeur/VenDeur.fxml")));
 			
-            stage.setScene(scene);
-           // stage.initStyle(StageStyle.TRANSPARENT);
-            scene.setFill(Color.TRANSPARENT);
-           
-           stage.show();
+				 stage1.setScene(scene);
+			        stage1.initStyle(StageStyle.TRANSPARENT);
+			        scene.setFill(Color.TRANSPARENT);
+			        stage1.show();
 	}
 
 }

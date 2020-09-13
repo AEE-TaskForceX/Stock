@@ -12,15 +12,14 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class VendeurController {
 	@FXML
 	private Label exit;
 	@FXML
     private void handleButtonAction(MouseEvent event) {
-       
-            System.exit(0);
-        
+       System.exit(0);
 	}
 	
        
@@ -38,88 +37,76 @@ public class VendeurController {
 	@FXML
     private void categorie(ActionEvent event) throws IOException {
        
-		Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        
-        stage.close();
+		   Stage stage1 = new Stage();
+
 
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_categorie/Categorie.fxml")));
-        stage.setScene(scene);
-       // stage.initStyle(StageStyle.TRANSPARENT);
+        stage1.setScene(scene);
+        stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        stage.show();
+        stage1.show();
         
 	}
 	@FXML
     private void article(ActionEvent event) throws IOException {
-       
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
+		   Stage stage1 = new Stage();
+
             
-            stage.close();
 
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_article/Article.fxml")));
-            stage.setScene(scene);
-           // stage.initStyle(StageStyle.TRANSPARENT);
+            stage1.setScene(scene);
+            stage1.initStyle(StageStyle.TRANSPARENT);
             scene.setFill(Color.TRANSPARENT);
-            stage.show();
+            stage1.show();
 	}
 
 @FXML
 private void clients(ActionEvent event) throws IOException {
    
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+	   Stage stage1 = new Stage();
+
         
-        stage.close();
 
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_client/Client.fxml")));
-        stage.setScene(scene);
-       // stage.initStyle(StageStyle.TRANSPARENT);
+        stage1.setScene(scene);
+        stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        stage.show();
+        stage1.show();
 }
 
 @FXML
 private void commandes(ActionEvent event) throws IOException {
    
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+	   Stage stage1 = new Stage();
+
         
-        stage.close();
 
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_commande/Commande.fxml")));
-        stage.setScene(scene);
-       // stage.initStyle(StageStyle.TRANSPARENT);
+        stage1.setScene(scene);
+        stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        stage.show();
+        stage1.show();
 }
 @FXML
 private void factures(ActionEvent event) throws IOException {
    
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        
-        stage.close();
+	 Stage stage1 = new Stage();
 
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_factures/Factures.fxml")));
-        stage.setScene(scene);
-       // stage.initStyle(StageStyle.TRANSPARENT);
+        stage1.setScene(scene);
+        stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        stage.show();
+        stage1.show();
 }
 @FXML
 private void fournisseur(ActionEvent event) throws IOException {
    
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        
-        stage.close();
+	 Stage stage1 = new Stage();
 
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_fournisseur/Fournisseur.fxml")));
-        stage.setScene(scene);
-       // stage.initStyle(StageStyle.TRANSPARENT);
+        stage1.setScene(scene);
+        stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        stage.show();
+        stage1.show();
 }
 }

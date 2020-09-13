@@ -153,7 +153,8 @@ public class FournisseurController implements Initializable {
     		String sql = "SELECT * FROM `fournisseur`" ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
-    		
+    		table.getItems().removeAll(data);
+
     		while (rs.next())
     		{
     			data.add(new Fournisseur(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) ) );
@@ -423,5 +424,9 @@ private void search() {
 	}
 	);
 }
-	
+public void handleButtonAction(MouseEvent event) {
+    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+    appStage.close();
+}	
 }

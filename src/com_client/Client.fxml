@@ -88,7 +88,7 @@
                         <Image url="@../a.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="exit" layoutX="768.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
+                  <Label fx:id="exit" layoutX="768.0" onMouseClicked="#handleButtonAction" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic" size="36.0" />
                      </font>
@@ -112,7 +112,6 @@
                      </font>
                   </TextField>
                   <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="500.0" layoutY="80.0" size="2em" />
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="36.0" layoutY="364.0" onMouseClicked="#back" size="2em" />
                   <Label layoutX="18.0" layoutY="191.0" text="Clients" textFill="#e4e4e3">
                      <font>
                         <Font name="Century Gothic" size="24.0" />

@@ -31,7 +31,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="51.0" layoutY="259.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Ajouter" textFill="WHITE">
+                  <Button fx:id="btnadd" layoutX="51.0" layoutY="259.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Ajouter" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -117,8 +117,6 @@
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="501.0" layoutY="80.0" size="2em" />
-                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="36.0" layoutY="364.0" onMouseClicked="#back" size="2em" />
                </children>
                <effect>
                   <DropShadow height="44.595" radius="32.94625" spread="0.28" width="89.19" />
