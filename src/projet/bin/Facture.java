@@ -10,14 +10,15 @@ public class Facture {
 	private String tel;
 	private String ref;
 
-	private String prix;
-	private String quantite;
+	private double prix;
+	private int quantite;
 	private String methpai;
-	private String tva;
-	private String montant;
+	private double tva;
+	private double montant;
+	private String date;
 
 
-	public Facture(String id,String idcom, String idvend, String datefact, String nomcli, String prenomcli, String tel,String ref,String prix,String quantite ,String methpai,String tva,String montant) {
+	public Facture(String id,String idcom, String idvend, String datefact, String nomcli, String prenomcli, String tel,String date,String ref,double prix,int quantite ,String methpai,double tva,double montant) {
 		super();
 		this.id=id;
 		this.idcom=idcom;
@@ -32,8 +33,14 @@ public class Facture {
 		this.methpai=methpai;
 		this.tva=tva;
 		this.montant=montant;
-	
+		this.date=date;
 
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public Facture() {
 		super();
@@ -51,16 +58,16 @@ public class Facture {
 	public void setRef(String ref) {
 		this.ref = ref;
 	}
-	public String getPrix() {
+	public double getPrix() {
 		return prix;
 	}
-	public void setPrix(String prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-	public String getQuantite() {
+	public int getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(String quantite) {
+	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
 	public String getNomcli() {
@@ -105,16 +112,16 @@ public class Facture {
 	public void setMethpai(String methpai) {
 		this.methpai = methpai;
 	}
-	public String getTva() {
+	public double getTva() {
 		return tva;
 	}
-	public void setTva(String tva) {
+	public void setTva(double tva) {
 		this.tva = tva;
 	}
-	public String getMontant() {
+	public double getMontant() {
 		return montant;
 	}
-	public void setMontant(String montant) {
+	public void setMontant(double montant) {
 		this.montant = montant;
 	}
 

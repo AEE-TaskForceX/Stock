@@ -3,13 +3,20 @@ package com_facture;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import application.LoginController;
 
 import com_connection.ConnectionDB;
 import javafx.collections.FXCollections;
@@ -21,12 +28,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 import projet.bin.Article;
 import projet.bin.Client;
 import projet.bin.Commande;
 import projet.bin.Facture;
 import javafx.scene.control.TableView;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 
 import javafx.scene.control.TableColumn;
@@ -35,27 +45,27 @@ public class FactureController implements Initializable {
 	@FXML
 	private TableView<Commande> tabcom;
 	@FXML
-	private TableColumn<Commande , Integer> idcommcol;
+	private TableColumn<Commande , String> idcommcol;
 	@FXML
-	private TableColumn<Commande , Integer>  idcliencol;
+	private TableColumn<Commande ,  String>  idcliencol;
 	@FXML
-	private TableColumn<Commande , Integer>  idarticlcl;
+	private TableColumn<Commande ,  String>  idarticlcl;
 	@FXML
-	private TableColumn<Commande , Integer> datecl;
+	private TableColumn<Commande ,  String> datecl;
 	@FXML
-	private TableColumn<Commande , Integer>  Nomcl;
+	private TableColumn<Commande ,  String>  Nomcl;
 	@FXML
-	private TableColumn<Commande , Integer>  prenomcl;
+	private TableColumn<Commande ,  String>  prenomcl;
 	@FXML
-	private TableColumn<Commande , Integer>  telcl;
+	private TableColumn<Commande ,  String>  telcl;
 	@FXML
-	private TableColumn<Commande , Integer>  referencecl;
+	private TableColumn<Commande ,  String>  referencecl;
 	@FXML
-	private TableColumn<Commande , Integer>  prixcl;
+	private TableColumn<Commande ,  String>  prixcl;
 	@FXML
-	private TableColumn<Commande , Integer>  quantitecl;
+	private TableColumn<Commande ,  String>  quantitecl;
 	@FXML
-	private TableColumn<Commande , Integer>  detailcl;
+	private TableColumn<Commande ,  String>  detailcl;
 	@FXML
 	private TextField rechercher;
 	@FXML
@@ -65,64 +75,93 @@ public class FactureController implements Initializable {
 	@FXML
 	private TableView<Facture> tabfac;
 	@FXML
-	private TableColumn<Facture , Integer> idfaccl1;
+	private TableColumn<Facture ,  String> idfaccl1;
 	@FXML
-	private TableColumn<Facture , Integer> idcommcl1;
+	private TableColumn<Facture ,  String> idcommcl1;
 	@FXML
-	private TableColumn<Facture , Integer> idvendcl1;
+	private TableColumn<Facture ,  String> idvendcl1;
 	@FXML
 	private TableColumn<Facture , String> datecl1;
+	@FXML
+	private TableColumn<Facture , String> datefac;
 	@FXML
 	private TableColumn<Facture , String> Nomcl1;
 	@FXML
 	private TableColumn<Facture , String> prenomcl1;
 	@FXML
-	private TableColumn<Facture , Integer> telcl1;
+	private TableColumn<Facture ,  String> telcl1;
 	@FXML
-	private TableColumn<Facture , Integer> referencecl1;
+	private TableColumn<Facture ,  String> referencecl1;
 	@FXML
-	private TableColumn <Facture , Integer>prixcl1;
+	private TableColumn <Facture ,  String>prixcl1;
 	@FXML
-	private TableColumn<Facture , Integer> quantitecl1;
+	private TableColumn<Facture , String> quantitecl1;
 	@FXML
 	private TableColumn<Facture , String> methcl1;
 	@FXML
-	private TableColumn<Facture , Integer> tvacl1;
+	private TableColumn<Facture ,  String> tvacl1;
 	@FXML
-	private TableColumn<Facture , Integer> montantcl1;
+	private TableColumn<Facture ,  String> montantcl1;
 	public ObservableList<Commande> dataCom = FXCollections.observableArrayList();
 	public ObservableList<Facture> datafac = FXCollections.observableArrayList();
-	@FXML
-	private TextField idfactxt;
-	@FXML
-	private TextField idcommtxt;
-	@FXML
-	private TextField idvendtxt;
-	@FXML
-	private TextField nomtxt;
-	@FXML
-	private TextField prenomtxt;
-	@FXML
-	private TextField teltxt;
-	@FXML
-	private TextArea details;
-	@FXML
-	private TextField referencetxt;
-	@FXML
-	private Label prixtxt;
-	@FXML
-	private DatePicker datetxt;
-	@FXML
-	private TextArea quantitetxt;
-	@FXML
-	private TextArea methtxt;
-	@FXML
-	private TextArea tvatxt;
-	@FXML
-	private TextArea montanttxt;
+
 	
-	
-	
+	 @FXML
+	    private TextField teltxt;
+	 @FXML
+	    private TextField idcommtxt;
+
+	    @FXML
+	    private DatePicker datefield;
+	   
+
+	    @FXML
+	    private TextField referencetxt;
+
+	    @FXML
+	    private TextField idvendtxt;
+	    @FXML
+	    private TextField prenomtxt;
+	    @FXML
+	    private TextField idfactxt;
+
+	    @FXML
+	    private TextField prixtxt;
+	    @FXML
+	    private TextField nomtxt;
+	    @FXML
+	    private TextField qutttxt;
+
+	    @FXML
+	    private TextField montatxt;
+	    @FXML
+	    private ComboBox<String> mdp;
+	    @FXML
+	    private ComboBox<Double> tva;
+	    private String methode[]={"Espèces","Carte bancaire","Paypal","Autre"};
+	    private Double tax[]={0.025,0.05,0.075};
+	   
+	    
+	    private void initMet(){
+	        List<String> list= new ArrayList<String>();
+	        for(String content:methode){
+	            list.add(content);
+	        }
+	        ObservableList oblist = FXCollections.observableArrayList(list);
+	        mdp.setItems(oblist);
+	       
+	    }
+	    
+	    private void initTax(){
+	        List<Double> list= new ArrayList<Double>();
+	        for(Double content:tax){
+	            list.add(content);
+	        }
+	        ObservableList oblist = FXCollections.observableArrayList(list);
+	        tva.setItems(oblist);
+	       
+	    }
+	    
 	public void viewComm() {
 		// TODO Autogenerated
 		
@@ -135,26 +174,28 @@ public class FactureController implements Initializable {
     		tabcom.getItems().removeAll(dataCom);
     		while (rs.next())
     		{
-    			dataCom.add(new Commande(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ,  rs.getString(7) ,  rs.getString(8) ,  rs.getString(9) ,  rs.getInt(11) ,   rs.getString(10) ) );
+    			dataCom.add(new Commande(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ,  rs.getString(7) ,  rs.getString(8) ,  rs.getString(9) ,  rs.getInt(10) ,   rs.getString(11) ) );
     			
     		}
     		conn.close();
     		
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
     	
-		idcommcol.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("id"));
-    	idcliencol.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("nom"));
-    	datecl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("datecom"));
-    	Nomcl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("nomcli"));
-    	prenomcl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("prenomcli"));
-    	telcl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("telcli"));
-    	detailcl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("details"));
-    	telcl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("idarticle"));
-    	referencecl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("refarticle"));
-    	prixcl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("prix"));
-    	quantitecl.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("quantite"));
+		idcommcol.setCellValueFactory(new PropertyValueFactory<Commande, String>("id"));
+    	idcliencol.setCellValueFactory(new PropertyValueFactory<Commande, String>("idcli"));
+    	datecl.setCellValueFactory(new PropertyValueFactory<Commande, String>("datecom"));
+    	Nomcl.setCellValueFactory(new PropertyValueFactory<Commande, String>("nomcli"));
+    	prenomcl.setCellValueFactory(new PropertyValueFactory<Commande, String>("prenomcli"));
+    	telcl.setCellValueFactory(new PropertyValueFactory<Commande, String>("telcli"));
+    	
+    	idarticlcl.setCellValueFactory(new PropertyValueFactory<Commande, String>("idarticle"));
+    	referencecl.setCellValueFactory(new PropertyValueFactory<Commande, String>("refarticle"));
+    	prixcl.setCellValueFactory(new PropertyValueFactory<Commande, String>("prix"));
+    	quantitecl.setCellValueFactory(new PropertyValueFactory<Commande, String>("quantite"));
+    	detailcl.setCellValueFactory(new PropertyValueFactory<Commande, String>("details"));
     	
     	tabcom.setItems(dataCom);	
 	}
@@ -173,32 +214,34 @@ public class FactureController implements Initializable {
     		tabfac.getItems().removeAll(datafac);
     		while (rs.next())
     		{
-    			datafac.add(new Facture(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ,  rs.getString(7) ,  rs.getString(8) ,  rs.getString(9) ,  rs.getString(10) ,   rs.getString(11) ,  rs.getString(12)  ,   rs.getString(13) ) );
+    			datafac.add(new Facture(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ,  rs.getString(7) ,  rs.getString(8) , rs.getString(9) ,  rs.getDouble(10) ,  rs.getInt(11) ,   rs.getString(12) ,  rs.getDouble(13)  ,   rs.getDouble(14) ) );
     			
     		}
     		conn.close();
     		
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
     	
 		
     	
     	
     	
-    	idfaccl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("id"));
-    	idcommcl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("idcom"));
-    	idvendcl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("idvend"));
+    	idfaccl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("id"));
+    	idcommcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("idcom"));
+    	idvendcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("idvend"));
     	Nomcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("nomcli"));
     	prenomcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("prenomcli"));
     	datecl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("datefact"));
-    	telcl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("tel"));
-    	referencecl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("ref"));
-    	prixcl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("prix"));
-    	quantitecl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("quantite"));
+    	telcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("tel"));
+    	referencecl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("ref"));
+    	prixcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("prix"));
+    	quantitecl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("quantite"));
     	methcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("methpai"));
-    	tvacl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("tva"));
-    	montantcl1.setCellValueFactory(new PropertyValueFactory<Facture, Integer>("montant"));
+    	tvacl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("tva"));
+    	montantcl1.setCellValueFactory(new PropertyValueFactory<Facture, String>("montant"));
+    	datefac.setCellValueFactory(new PropertyValueFactory<Facture, String>("date"));
     	
     	tabfac.setItems(datafac);	
     	
@@ -222,11 +265,51 @@ public class FactureController implements Initializable {
 					teltxt.setText(c.getTelcli());
 					referencetxt.setText(c.getRefarticle());
 					prixtxt.setText(c.getPrix());
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    String DT=c.getDatecom();
+                    LocalDate DATECom = LocalDate.parse(DT, formatter);
+
+                    datefield.setValue(DATECom);
 					String QUTT = Integer.toString(c.getQuantite());
-					quantitetxt.setText(QUTT);
-					//oooooooooooonnnnnnnSssssssssssssssss
+					qutttxt.setText(QUTT);
+					
 					
 				
+				}
+				
+				
+			});
+		}
+	
+	 private void TableToTextFac() {
+			tabfac.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+				@Override
+				public void handle(MouseEvent event) {
+					// TODO Auto-generated method stub
+					Facture c =tabfac.getItems().get(tabfac.getSelectionModel().getSelectedIndex());
+					idcommtxt.setText(c.getIdcom());
+					nomtxt.setText(c.getNomcli());
+					prenomtxt.setText(c.getPrenomcli());
+					teltxt.setText(c.getTel());
+					referencetxt.setText(c.getRef());
+					String PRIX = Double.toString(c.getQuantite());
+					
+					prixtxt.setText(PRIX);
+					
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                 String DT=c.getDate();
+                 LocalDate DATECom = LocalDate.parse(DT, formatter);
+
+                 datefield.setValue(DATECom);
+					String QUTT = Integer.toString(c.getQuantite());
+					qutttxt.setText(QUTT);
+					
+					mdp.getSelectionModel().select(c.getMethpai());
+					tva.getSelectionModel().select(c.getTva());
+					
+					String logid = LoginController.getlogid();
+					idvendtxt.setText(logid);
 				}
 				
 				
@@ -240,25 +323,130 @@ public class FactureController implements Initializable {
 	
 	
 	// Event Listener on Label[#exit].onMouseClicked
-	@FXML
-	public void handleButtonAction(MouseEvent event) {
-		// TODO Autogenerated
-	}
+	 @FXML
+	 public void handleButtonAction(MouseEvent event) {
+         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+         appStage.close();
+     }
 	// Event Listener on FontAwesomeIcon.onDragDetected
 	@FXML
 	public void back(MouseEvent event) {
 		// TODO Autogenerated
 	}
 	// Event Listener on FontAwesomeIcon.onMouseClicked
-	@FXML
-	public void back(MouseEvent event) {
-		// TODO Autogenerated
-	}
+	
 	// Event Listener on Button.onAction
-	@FXML
-	public void ajouter(ActionEvent event) {
-		// TODO Autogenerated
-	}
+	 public static int Ajouter(Facture cl)
+	    {
+	    	Connection conn = ConnectionDB.conDB();
+	    	int rs = 0;
+	    	try {
+	    		
+	    		String sql = "insert into facture ( Id_Commande , 	Id_Vendeur , Date_Facture , Nom_Client , Prenom_Client, Tel_Client , Date_Commande , Ref_Article , Prix_Article, Quantite , Methpai , TVA, Montant ) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    		PreparedStatement stm = conn.prepareStatement(sql);
+	    		
+	    		stm.setString(1, cl.getIdcom());
+	    		stm.setString(2, cl.getIdvend());
+	    		stm.setString(3, cl.getDatefact());
+	    		stm.setString(4, cl.getNomcli());
+	    		stm.setString(5, cl.getPrenomcli());
+	    		stm.setString(6, cl.getTel());
+	    		stm.setString(7, cl.getDate());
+	    		stm.setString(8, cl.getRef());
+	    		stm.setDouble(9, cl.getPrix());
+	    		stm.setInt(10, cl.getQuantite());
+	    		stm.setString(11, cl.getMethpai());
+	    		stm.setDouble(12, cl.getTva());
+	    		stm.setDouble(13, cl.getMontant());
+	    		
+	    		
+	    		
+	    		
+	    		 rs = stm.executeUpdate();
+	    		
+	    		
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getMessage());
+			}
+	    	
+	    return rs;	
+	    }
+	    
+	    
+	    
+	    public void insertdata (ActionEvent event)
+	    {	
+	    	LocalDate dateemp=LocalDate.now();
+	    	String IDCOM = idcommtxt.getText();
+	    	
+	    	String NOM = nomtxt.getText();
+	    	String PRENOM = prenomtxt.getText();
+	    	
+	    	String TELE = teltxt.getText();
+	    	String REF = referencetxt.getText();
+	    	String PRIX = prixtxt.getText();
+	    	String QUTTE = qutttxt.getText();
+	    	//String MONTANT = montatxt.getText();
+	    	String DATE=dateemp.toString();
+	    	LocalDate DATECOM=datefield.getValue();
+		      String dateR=DATECOM.toString();
+		      double TVA =tva.getValue();
+		      int Quant=Integer.parseInt(QUTTE);
+		      double quantity = Double.parseDouble(QUTTE);
+		      double price = Double.parseDouble(PRIX);
+		      String logid = LoginController.getlogid();
+		      
+		      double Total= (price*quantity) +(price*quantity)/TVA;
+	    	System.out.println("total"+Total);
+		      
+	    	Facture cl = new Facture();
+	    	
+	    	
+	    	cl.setIdcom(IDCOM);
+	    	cl.setIdvend(logid);
+	    	cl.setNomcli(NOM);
+	    	cl.setPrenomcli(PRENOM);
+	    	cl.setDate(dateR);
+	    	cl.setTel(TELE);
+	    	cl.setRef(REF);
+	    	cl.setPrix(price);
+	    	cl.setQuantite(Quant);
+	    	cl.setMethpai(mdp.getValue());
+	    	cl.setTva(tva.getValue());
+	    	cl.setMontant(Total);
+	    	cl.setDatefact(DATE);
+	    	
+	    	
+	    	int etat = Ajouter(cl);
+	    	
+	    	
+	    	if (etat > 0) {
+	    	
+	    	Alert alert = new Alert(AlertType.INFORMATION);
+	    	alert.setTitle("Ajouter Facture");
+	    	alert.setHeaderText("Information");
+	    	alert.setContentText("Facture bien ajoutée");
+	    	alert.showAndWait();
+	    	
+	              }
+	    	else
+	    	{
+	    		Alert alert = new Alert(AlertType.ERROR);
+		    	alert.setTitle("Ajouter Facture");
+		    	alert.setHeaderText("Information");
+		    	alert.setContentText("Facture Non ajoutée");
+		    	alert.showAndWait();	
+	    
+	    	}
+	    	
+	    	
+	    	viewFac();
+	    	
+	    	}
+		
 	// Event Listener on Button.onAction
 	@FXML
 	public void modifier(ActionEvent event) {
@@ -277,7 +465,14 @@ public class FactureController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		TableToTextCom();
+		TableToTextFac();
+		viewComm();
+		viewFac();
+		String logid = LoginController.getlogid();
+		idvendtxt.setText(logid);
+		initMet();
+		initTax();
 		
 		
 	}

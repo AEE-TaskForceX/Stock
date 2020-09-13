@@ -15,7 +15,7 @@ public class Commande {
 
 
 
-	public Commande(String id,String idcli,String idarticle, String datecom, String nomcli, String prenomcli , String telcli,String details,String prix,int quantite,  String refarticle) {
+	public Commande(String id,String idcli,String idarticle, String datecom, String nomcli, String prenomcli , String telcli,String refarticle,String prix,int quantite,  String details) {
 		super();
 		this.id=id;
 		this.idcli=idcli;

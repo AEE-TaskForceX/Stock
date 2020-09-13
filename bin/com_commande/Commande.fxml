@@ -126,7 +126,7 @@
                         <TableColumn fx:id="tel" prefWidth="67.0" text="Tel Client" />
                         <TableColumn fx:id="reference" prefWidth="109.0" text="Réference Article" />
                         <TableColumn fx:id="prix" prefWidth="34.0" text="Prix" />
-                        <TableColumn fx:id="quantte" prefWidth="55.0" text="Quantité" />
+                        <TableColumn fx:id="quantt" prefWidth="55.0" text="Quantité" />
                         <TableColumn fx:id="detail" prefWidth="94.0" text="Détails" />
                      </columns>
                      <effect>

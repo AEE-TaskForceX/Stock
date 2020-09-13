@@ -92,9 +92,15 @@ private void factures(ActionEvent event) throws IOException {
    
 	 Stage stage1 = new Stage();
 
+<<<<<<< HEAD
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_factures/Factures.fxml")));
         stage1.setScene(scene);
         stage1.initStyle(StageStyle.TRANSPARENT);
+=======
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com_facture/Facture.fxml")));
+        stage.setScene(scene);
+       // stage.initStyle(StageStyle.TRANSPARENT);
+>>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
         scene.setFill(Color.TRANSPARENT);
         stage1.show();
 }
