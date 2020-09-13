@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 import com_article.ArticleController;
 import com_client.ClientController;
 import com_connection.ConnectionDB;
@@ -507,6 +506,7 @@ public class CommandeController implements Initializable{
 	      String PRIXARTICLE=prixarticle.getText();
 	      String DETAILS=details.getText();
 	      String DATE=dateemp.toString();
+	      
 		 Commande dm = new Commande();
 	      
 	     
