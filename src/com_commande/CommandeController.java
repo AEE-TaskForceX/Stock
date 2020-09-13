@@ -28,6 +28,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import javafx.scene.control.TextArea;
@@ -124,11 +125,34 @@ public class CommandeController implements Initializable{
 	private TextField rechCli;
 	@FXML
 	private TextField RechArt;
+	@FXML
+	private Button btnVider;
 	public ObservableList<Client> dataCli = FXCollections.observableArrayList();
 	public ObservableList<Commande> dataCom = FXCollections.observableArrayList();
 	public ObservableList<Article> dataArt = FXCollections.observableArrayList();
 	// Event Listener on FontAwesomeIcon.onMouseClicked
+	
 
+	  public void vider ( )
+	    {
+	    	try {
+	    		
+	    		quanttarticle.clear();
+	    		idclient.clear();
+	    		nomclient.clear();
+	    		prenomclient.clear();
+	    		idarticle.clear();
+	    		refarticle.clear();
+	    		prixarticle.clear();
+	    		details.clear();
+
+	    		
+		   
+	    	} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getMessage());
+			}}
+	    	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

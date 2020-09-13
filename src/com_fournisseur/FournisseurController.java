@@ -61,6 +61,9 @@ public class FournisseurController implements Initializable {
 	private TextField rechercher;
 	public ObservableList<Fournisseur> data = FXCollections.observableArrayList();
 
+	
+	
+	
 /*--------------------------------------------------AJOUTER----------------------------------------------------------------------------------*/	    
 
 	
@@ -331,15 +334,17 @@ public class FournisseurController implements Initializable {
     {
     	try {
     		
-	    	nomtxt.clear();
+    		nomtxt.clear();
 	    	txtadresse.clear();
 	    	txttel.clear();
 	    	txtemail.clear();
-	    	
+	   
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
+	    	
+	   
     	
     	
     	

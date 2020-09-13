@@ -29,6 +29,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -77,7 +78,30 @@ public class ArticleController implements Initializable {
 	private TableColumn<Article,String> col_desc;
 	@FXML
 	private TextField searchfield;
-	
+	@FXML
+	private Button btnVider;
+
+	  public void vider ( )
+	    {
+	    	try {
+	    		
+	    		txtquant.clear();
+	    		txtprix.clear();
+	    		txtref.clear();
+	    		txtdet.clear();
+	    		datefield.setValue(null);
+;
+	    		combofourn.setValue(null);
+	    		combocat.setValue(null);
+		   
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getMessage());
+			}
+	    	
+	    	
+	    	
+	    }
 	public ObservableList<Article> data= FXCollections.observableArrayList();
     ObservableList<Article> dataList;
     public ObservableList<String> data1= FXCollections.observableArrayList();

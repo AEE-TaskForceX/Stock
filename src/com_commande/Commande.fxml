@@ -23,37 +23,37 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="idclient" layoutX="57.0" layoutY="60.0" prefHeight="46.0" prefWidth="279.0" promptText="Id Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="idclient" disable="true" layoutX="57.0" layoutY="60.0" prefHeight="46.0" prefWidth="279.0" promptText="Id Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="nomclient" layoutX="57.0" layoutY="106.0" prefHeight="46.0" prefWidth="279.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="nomclient" disable="true" layoutX="57.0" layoutY="106.0" prefHeight="46.0" prefWidth="279.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="prenomclient" layoutX="57.0" layoutY="152.0" prefHeight="46.0" prefWidth="279.0" promptText="Prenom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="prenomclient" disable="true" layoutX="57.0" layoutY="152.0" prefHeight="46.0" prefWidth="279.0" promptText="Prenom Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="telephoneclient" layoutX="57.0" layoutY="198.0" prefHeight="46.0" prefWidth="279.0" promptText="Téléphone Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="telephoneclient" disable="true" layoutX="57.0" layoutY="198.0" prefHeight="46.0" prefWidth="279.0" promptText="Téléphone Client" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="idarticle" layoutX="57.0" layoutY="244.0" prefHeight="46.0" prefWidth="279.0" promptText="Id Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="idarticle" disable="true" layoutX="57.0" layoutY="244.0" prefHeight="46.0" prefWidth="279.0" promptText="Id Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="refarticle" layoutX="57.0" layoutY="287.0" prefHeight="46.0" prefWidth="279.0" promptText="Réference Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="refarticle" disable="true" layoutX="57.0" layoutY="287.0" prefHeight="46.0" prefWidth="279.0" promptText="Réference Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="prixarticle" layoutX="57.0" layoutY="333.0" prefHeight="46.0" prefWidth="279.0" promptText="Prix Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="prixarticle" disable="true" layoutX="57.0" layoutY="333.0" prefHeight="46.0" prefWidth="279.0" promptText="Prix Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
@@ -93,6 +93,7 @@
                      </font>
                   </TextField>
                   <Label fx:id="lbl" layoutX="57.0" layoutY="425.0" prefHeight="17.0" prefWidth="279.0" textFill="#ab1515" />
+                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="336.0" layoutY="80.0" onMouseClicked="#vider" size="2em" />
                </children>
                <effect>
                   <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />

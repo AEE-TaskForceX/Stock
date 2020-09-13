@@ -55,10 +55,26 @@ public class CategorieController  implements Initializable{
     private Button btnadd;
 	@FXML
 	private TableColumn<Categorie, String> col_desc;
+
 	public ObservableList<Categorie> data= FXCollections.observableArrayList();
 	 ObservableList<Categorie> dataList;
 	
-	 
+		
+		  public void vider ( )
+		    {
+		    	try {
+		    		
+		    		chargefield.clear();
+		    		typefield.clear();
+			   
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println(e.getMessage());
+				}
+		    	
+		    	
+		    	
+		    }
 	  public void handleButtonAction(MouseEvent event) {
 	        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

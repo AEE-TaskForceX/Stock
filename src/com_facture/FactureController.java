@@ -139,8 +139,34 @@ public class FactureController implements Initializable {
 	    @FXML
 	    private ComboBox<Double> tva;
 	    private String methode[]={"Espèces","Carte bancaire","Paypal","Autre"};
-	    private Double tax[]={0.025,0.05,0.075};
-	   
+	    private Double tax[]={0.0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40};
+
+
+		  public void vider ( )
+		    {
+		    	try {
+		    		
+		    		teltxt.clear();
+		    		idcommtxt.clear();
+		    		idvendtxt.clear();
+		    		nomtxt.clear();
+		    		prenomtxt.clear();
+		    		datefield.setValue(null);
+		    		referencetxt.clear();
+		    		qutttxt.clear();
+		    		mdp.setValue(null);
+		    		tva.setValue(null);
+		    		prixtxt.clear();
+		    		qutttxt.clear();
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println(e.getMessage());
+				}
+		    	
+		    	
+		    	
+		    }
 	    
 	    private void initMet(){
 	        List<String> list= new ArrayList<String>();
@@ -476,4 +502,5 @@ public class FactureController implements Initializable {
 		
 		
 	}
+	
 }
