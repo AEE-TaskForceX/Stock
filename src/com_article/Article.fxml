@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
@@ -12,9 +13,9 @@
    <children>
       <AnchorPane layoutX="40.0" layoutY="43.0" prefHeight="722.0" prefWidth="832.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="43.0">
          <children>
-            <AnchorPane layoutX="47.0" layoutY="394.0" maxWidth="738.0" prefHeight="281.0" prefWidth="738.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
+            <AnchorPane layoutX="47.0" layoutY="394.0" maxWidth="738.0" prefHeight="328.0" prefWidth="738.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
                <children>
-                  <Button layoutX="290.0" layoutY="207.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Modifier" textFill="WHITE">
+                  <Button layoutX="290.0" layoutY="259.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Modifier" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -22,7 +23,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="521.0" layoutY="207.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Supprimer" textFill="WHITE">
+                  <Button layoutX="526.0" layoutY="259.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Supprimer" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -30,7 +31,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="56.0" layoutY="207.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Ajouter" textFill="WHITE">
+                  <Button layoutX="51.0" layoutY="259.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../com_client/buttonC.css" text="Ajouter" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -38,27 +39,27 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="txtquant" layoutX="185.0" layoutY="124.0" prefHeight="46.0" prefWidth="159.0" promptText="Quantite" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="txtquant" layoutX="285.0" layoutY="124.0" prefHeight="46.0" prefWidth="169.0" promptText="Quantite" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtprix" layoutX="362.0" layoutY="124.0" prefHeight="46.0" prefWidth="159.0" promptText="Prix" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="txtprix" layoutX="521.0" layoutY="124.0" prefHeight="46.0" prefWidth="169.0" promptText="Prix" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtref" layoutX="14.0" layoutY="124.0" prefHeight="46.0" prefWidth="159.0" promptText="Réference" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
+                  <TextField fx:id="txtref" layoutX="46.0" layoutY="124.0" prefHeight="46.0" prefWidth="169.0" promptText="Réference" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextArea fx:id="txtdet" layoutX="565.0" layoutY="124.0" prefHeight="46.0" prefWidth="159.0" promptText="Détails de la commande" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@../com_commande/textarea.css">
+                  <TextArea fx:id="txtdet" layoutX="46.0" layoutY="187.0" prefHeight="46.0" prefWidth="647.0" promptText="Détails de la commande" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px;" stylesheets="@../com_commande/textarea.css">
                      <font>
                         <Font name="Century Gothic" size="14.0" />
                      </font>
                   </TextArea>
-                  <ComboBox fx:id="combocat" layoutX="46.0" layoutY="55.0" prefHeight="46.0" prefWidth="169.0" promptText="Categorie" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
+                  <ComboBox fx:id="combocat" layoutX="46.0" layoutY="59.0" prefHeight="46.0" prefWidth="169.0" promptText="Categorie" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
                   <DatePicker fx:id="datefield" layoutX="521.0" layoutY="59.0" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
                   <ComboBox fx:id="combofourn" layoutX="285.0" layoutY="59.0" prefHeight="46.0" prefWidth="169.0" promptText="Fournisseur" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
                </children>
@@ -83,7 +84,7 @@
                         <Image url="@../a.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="exit" layoutX="768.0" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
+                  <Label fx:id="exit" layoutX="768.0" onMouseClicked="#handleButtonAction" prefHeight="44.0" prefWidth="18.0" text="x" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic" size="36.0" />
                      </font>
@@ -108,7 +109,7 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="3.0" layoutY="191.0" text="Vendeurs" textFill="#e4e4e3">
+                  <Label layoutX="17.0" layoutY="191.0" text="Articles" textFill="#e4e4e3">
                      <effect>
                         <DropShadow spread="0.35" />
                      </effect>
@@ -116,6 +117,8 @@
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </Label>
+                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="501.0" layoutY="80.0" size="2em" />
+                  <FontAwesomeIcon fill="#e4e4e3" glyphName="ARROW_LEFT" layoutX="36.0" layoutY="364.0" onMouseClicked="#back" size="2em" />
                </children>
                <effect>
                   <DropShadow height="44.595" radius="32.94625" spread="0.28" width="89.19" />
