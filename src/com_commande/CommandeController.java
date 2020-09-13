@@ -237,6 +237,7 @@ public class CommandeController implements Initializable{
     	reference.setCellValueFactory(new PropertyValueFactory<Commande, String>("refarticle"));
     	prix.setCellValueFactory(new PropertyValueFactory<Commande, String>("prix"));
     	detail.setCellValueFactory(new PropertyValueFactory<Commande, String>("details"));
+    	quantt.setCellValueFactory(new PropertyValueFactory<Commande, String>("quantite"));
     	
     	tabcom.setItems(dataCom);	
     	
