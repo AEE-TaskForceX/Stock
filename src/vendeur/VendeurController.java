@@ -106,7 +106,7 @@ private void factures(ActionEvent event) throws IOException {
         stage.setScene(scene);
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        stage.show();///////
+        stage.show();
 }
 @FXML
 private void fournisseur(ActionEvent event) throws IOException {
