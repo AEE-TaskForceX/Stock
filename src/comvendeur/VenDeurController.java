@@ -208,7 +208,7 @@ public class VenDeurController implements Initializable {
     		stm.setString(3, cl.getTel());
     		stm.setString(4, cl.getLoginid());
     		stm.setString(5, cl.getMdp());
-    		stm.setString(5, idd);
+    		stm.setString(6, idd);
     		
     		
     		 d = stm.executeUpdate();

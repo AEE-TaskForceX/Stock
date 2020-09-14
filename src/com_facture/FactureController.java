@@ -546,7 +546,7 @@ public class FactureController implements Initializable {
 		      double price = Double.parseDouble(PRIX);
 		      String logid = LoginController.getlogid();
 		      
-		      double Total= (price*quantity) +(price*quantity)/TVA;
+		      double Total= (price*quantity) +(price*quantity)*TVA;
 	    	System.out.println("total"+Total);
 		      
 	    	Facture cl = new Facture();
