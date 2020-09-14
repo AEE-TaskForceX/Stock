@@ -46,6 +46,7 @@ import javafx.scene.control.TableColumn;
 
 public class FactureController implements Initializable {
 	private FXMLLoader loader;
+	//
 	@FXML
 	private TableView<Commande> tabcom;
 	@FXML

@@ -166,7 +166,7 @@ public class VenDeurController implements Initializable {
     		String sql = "SELECT * FROM `vendeur`" ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
-    		
+    		table.getItems().removeAll(data);
     		while (rs.next())
     		{
     			data.add(new Vendeur(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getDouble(5) ,  rs.getString(6),rs.getString(7) ) );

@@ -3,6 +3,7 @@ package admin;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -17,6 +18,7 @@ import javafx.stage.StageStyle;
 public class AdminController {
 	@FXML
 	private Label exit;
+	double xOffset, yOffset;
 	@FXML
     private void handleButtonAction(MouseEvent event) {
        
@@ -47,10 +49,32 @@ public class AdminController {
 		
 			scene = new Scene(FXMLLoader.load(getClass().getResource("/com_adminsettings/AdminSettings.fxml")));
 		
+<<<<<<< HEAD
 			 stage1.setScene(scene);
 		        stage1.initStyle(StageStyle.TRANSPARENT);
 		        scene.setFill(Color.TRANSPARENT);
 		        stage1.show();
+=======
+        stage.setScene(scene);
+       // stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+       
+       stage.show();
+       scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+			}
+		});
+		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				stage.setX(event.getScreenX() - xOffset);
+				stage.setY(event.getScreenY() - yOffset);
+			}
+		});
+>>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
         
 	}
 	@FXML
@@ -63,10 +87,32 @@ public class AdminController {
 			
 				scene = new Scene(FXMLLoader.load(getClass().getResource("/comvendeur/VenDeur.fxml")));
 			
+<<<<<<< HEAD
 				 stage1.setScene(scene);
 			        stage1.initStyle(StageStyle.TRANSPARENT);
 			        scene.setFill(Color.TRANSPARENT);
 			        stage1.show();
+=======
+            stage.setScene(scene);
+           // stage.initStyle(StageStyle.TRANSPARENT);
+            scene.setFill(Color.TRANSPARENT);
+           
+           stage.show();
+           scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent event) {
+					xOffset = event.getSceneX();
+					yOffset = event.getSceneY();
+				}
+			});
+			scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent event) {
+					stage.setX(event.getScreenX() - xOffset);
+					stage.setY(event.getScreenY() - yOffset);
+				}
+			});
+>>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 	}
 
 }

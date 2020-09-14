@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -63,6 +64,7 @@
                         <Font name="Century Gothic" size="12.0" />
                      </font>
                   </TextField>
+                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="659.0" layoutY="161.0" onMouseClicked="#vider" size="2em" />
                </children>
                <effect>
                   <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
@@ -117,6 +119,7 @@
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </Label>
+                  <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="497.0" layoutY="80.0" size="2em" />
                </children>
                <effect>
                   <DropShadow height="44.595" radius="32.94625" spread="0.28" width="89.19" />
