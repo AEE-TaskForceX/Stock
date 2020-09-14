@@ -48,7 +48,6 @@
                         <Font name="Century Gothic" size="36.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="315.0" layoutY="55.0" onMouseClicked="#vider" size="2em" />
                   <TextField fx:id="referencetxt" disable="true" layoutX="57.0" layoutY="306.0" prefHeight="37.0" prefWidth="279.0" promptText="Reference Article" style="-fx-background-color: transparent; -fx-border-width: 0PX 0PX  3PX 0PX;" stylesheets="@../application/application.css">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
@@ -91,6 +90,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
+                  <FontAwesomeIcon fill="BLUEVIOLET" glyphName="BAN" layoutX="320.0" layoutY="65.0" onMouseClicked="#vider" size="2em" />
                </children>
                <effect>
                   <DropShadow color="BLUEVIOLET" height="37.18" radius="20.655" spread="0.45" width="47.44" />
@@ -169,7 +169,7 @@
                   </TableView>
                   <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="787.0" layoutY="389.0" size="2em" />
                   <FontAwesomeIcon fill="#e4e4e3" glyphName="SEARCH" layoutX="787.0" layoutY="92.0" size="2em" wrappingWidth="22.285715103149414" />
-                  <Button layoutX="330.0" layoutY="644.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="318.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Afficher" textFill="WHITE">
+                  <Button layoutX="330.0" layoutY="644.0" mnemonicParsing="false" onAction="#afficher" prefHeight="52.0" prefWidth="318.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Afficher" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>

@@ -11,11 +11,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import projet.bin.Article;
 import projet.bin.Categorie;
+import projet.bin.Commande;
 
 
 public class ConnectionDB {
 	static String nom;
 	static String prenom;
+	static String y;
+	static String z;
+
+
 	public static Connection conDB() 
     {
         try{
@@ -91,7 +96,40 @@ public class ConnectionDB {
          return listl;
      }
 	 
-	 
+	 public static String getIdcli(){
+         Connection con = conDB();
+         try {
+        	 String x= com_facture.AfficherController.getIdCom() ;
+             PreparedStatement ps = con.prepareStatement("select id_client from Commande where id_commande =? ");
+             ps.setString(1, x);
+             ResultSet rs = ps.executeQuery();
+             
+             while (rs.next()){   
+                 
+                 y= rs.getString("id_commande");       
+             }
+         } catch (Exception e) {
+        	 e.printStackTrace();
+         }
+         return (y);
+     }
+	 public static String getMail(){
+         Connection con = conDB();
+         try {
+        	 String x= getIdcli() ;
+             PreparedStatement ps = con.prepareStatement("select Mail_Client from client where Id_Client =? ");
+             ps.setString(1, x);
+             ResultSet rs = ps.executeQuery();
+             
+             while (rs.next()){   
+                 
+                 z= rs.getString("Mail_Client");       
+             }
+         } catch (Exception e) {
+        	 e.printStackTrace();
+         }
+         return (z);
+     }
 	
 
 }

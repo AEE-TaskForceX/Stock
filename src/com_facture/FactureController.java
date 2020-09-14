@@ -1,6 +1,7 @@
 package com_facture;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -29,6 +30,8 @@ import javafx.scene.control.TextArea;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import projet.bin.Article;
 import projet.bin.Client;
@@ -42,6 +45,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 
 public class FactureController implements Initializable {
+	private FXMLLoader loader;
 	@FXML
 	private TableView<Commande> tabcom;
 	@FXML
@@ -319,7 +323,7 @@ public class FactureController implements Initializable {
 					prenomtxt.setText(c.getPrenomcli());
 					teltxt.setText(c.getTel());
 					referencetxt.setText(c.getRef());
-					String PRIX = Double.toString(c.getQuantite());
+					String PRIX = Double.toString(c.getPrix());
 					
 					prixtxt.setText(PRIX);
 					
@@ -502,5 +506,29 @@ public class FactureController implements Initializable {
 		
 		
 	}
+
 	
+	@FXML
+    private void afficher(ActionEvent event){
+        try{
+            loader = new FXMLLoader();
+           
+            loader.setLocation(getClass().getResource("Afficher.fxml"));
+            Parent tableViewparent=loader.load();
+            Scene tableViewscene = new Scene(tableViewparent);
+            
+            AfficherController controller =loader.getController();
+            controller.initData(tabfac.getSelectionModel().getSelectedItem());
+            
+            Stage window = new Stage()/*(Stage)((Node)event.getSource()).getScene().getWindow()*/;
+            
+            window.setScene(tableViewscene);
+            window.show();
+ 
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
