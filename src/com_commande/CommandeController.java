@@ -557,7 +557,14 @@ public class CommandeController implements Initializable{
             alert.setHeaderText("Information");
             alert.setContentText("Saisissez une quantité inférieure ou égale à "+quantity());
             alert.showAndWait();
-	    }
+	    } else if(Quant==0) {
+	    	  lbl.setText("Quantité saisie est nulle");
+	            Alert alert = new Alert (Alert.AlertType.ERROR);
+	            alert.setTitle("Quantité d'article");
+	            alert.setHeaderText("Information");
+	            alert.setContentText("Saisissez une quantité non nulle");
+	            alert.showAndWait();
+	      }
 	    else {
 	    	lbl.setText("");
 		 Commande dm = new Commande();
@@ -711,6 +718,14 @@ public class CommandeController implements Initializable{
 			            alert.setContentText("Saisissez une quantité inférieure ou égale à "+quantity());
 			            alert.showAndWait();
 				    }
+			      else if(Quant==0) {
+			    	  lbl.setText("Quantité saisie est nulle");
+			            Alert alert = new Alert (Alert.AlertType.ERROR);
+			            alert.setTitle("Quantité d'article");
+			            alert.setHeaderText("Information");
+			            alert.setContentText("Saisissez une quantité non nulle");
+			            alert.showAndWait();
+			      }
 				    else {
 				    	lbl.setText("");
 			      
