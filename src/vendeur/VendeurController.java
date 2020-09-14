@@ -3,6 +3,7 @@ package vendeur;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 public class VendeurController {
 	@FXML
 	private Label exit;
+	double xOffset, yOffset;
 	@FXML
     private void handleButtonAction(MouseEvent event) {
        
@@ -48,6 +50,20 @@ public class VendeurController {
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stage.show();
+        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+			}
+		});
+		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				stage.setX(event.getScreenX() - xOffset);
+				stage.setY(event.getScreenY() - yOffset);
+			}
+		});
         
 	}
 	@FXML
@@ -63,6 +79,20 @@ public class VendeurController {
            // stage.initStyle(StageStyle.TRANSPARENT);
             scene.setFill(Color.TRANSPARENT);
             stage.show();
+            scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+    			@Override
+    			public void handle(MouseEvent event) {
+    				xOffset = event.getSceneX();
+    				yOffset = event.getSceneY();
+    			}
+    		});
+    		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+    			@Override
+    			public void handle(MouseEvent event) {
+    				stage.setX(event.getScreenX() - xOffset);
+    				stage.setY(event.getScreenY() - yOffset);
+    			}
+    		});
 	}
 
 @FXML
@@ -78,6 +108,20 @@ private void clients(ActionEvent event) throws IOException {
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stage.show();
+        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+			}
+		});
+		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				stage.setX(event.getScreenX() - xOffset);
+				stage.setY(event.getScreenY() - yOffset);
+			}
+		});
 }
 
 @FXML
@@ -93,6 +137,20 @@ private void commandes(ActionEvent event) throws IOException {
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stage.show();
+        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+			}
+		});
+		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				stage.setX(event.getScreenX() - xOffset);
+				stage.setY(event.getScreenY() - yOffset);
+			}
+		});
 }
 @FXML
 private void factures(ActionEvent event) throws IOException {
@@ -107,6 +165,20 @@ private void factures(ActionEvent event) throws IOException {
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stage.show();
+        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+			}
+		});
+		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				stage.setX(event.getScreenX() - xOffset);
+				stage.setY(event.getScreenY() - yOffset);
+			}
+		});
 }
 @FXML
 private void fournisseur(ActionEvent event) throws IOException {
@@ -121,5 +193,19 @@ private void fournisseur(ActionEvent event) throws IOException {
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stage.show();
+        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+			}
+		});
+		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				stage.setX(event.getScreenX() - xOffset);
+				stage.setY(event.getScreenY() - yOffset);
+			}
+		});
 }
 }
