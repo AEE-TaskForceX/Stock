@@ -29,10 +29,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import projet.bin.Article;
 import projet.bin.Client;
 import projet.bin.Commande;
@@ -47,6 +49,7 @@ import javafx.scene.control.TableColumn;
 public class FactureController implements Initializable {
 	private FXMLLoader loader;
 	//
+	double xOffset, yOffset;
 	@FXML
 	private TableView<Commande> tabcom;
 	@FXML
@@ -509,27 +512,44 @@ public class FactureController implements Initializable {
 	}
 
 	
+	
 	@FXML
-    private void afficher(ActionEvent event){
-        try{
-            loader = new FXMLLoader();
-           
-            loader.setLocation(getClass().getResource("Afficher.fxml"));
-            Parent tableViewparent=loader.load();
-            Scene tableViewscene = new Scene(tableViewparent);
-            
-            AfficherController controller =loader.getController();
-            controller.initData(tabfac.getSelectionModel().getSelectedItem());
-            
-            Stage window = new Stage()/*(Stage)((Node)event.getSource()).getScene().getWindow()*/;
-            
-            window.setScene(tableViewscene);
-            window.show();
- 
+	    private void afficher(ActionEvent event){
+	        try{
+	            loader = new FXMLLoader();
 
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+	            loader.setLocation(getClass().getResource("Afficher.fxml"));
+	            Parent tableViewparent=loader.load();
+	            Scene tableViewscene = new Scene(tableViewparent);
+
+	            AfficherController controller =loader.getController();
+	            controller.initData(tabfac.getSelectionModel().getSelectedItem());
+
+	            Stage window = new Stage();//(Stage)((Node)event.getSource()).getScene().getWindow()/;
+	            window.initStyle(StageStyle.TRANSPARENT);
+	            tableViewscene.setFill(Color.TRANSPARENT);
+	            window.setScene(tableViewscene);
+	            window.show();
+	            
+	            tableViewscene.setOnMousePressed(new EventHandler<MouseEvent>() {
+	    			@Override
+	    			public void handle(MouseEvent event) {
+	    				xOffset = event.getSceneX();
+	    				yOffset = event.getSceneY();
+	    			}
+	    		});
+	            tableViewscene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+	    			@Override
+	    			public void handle(MouseEvent event) {
+	    				window.setX(event.getScreenX() - xOffset);
+	    				window.setY(event.getScreenY() - yOffset);
+	    			}
+	    		});
+	 
+
+	        }catch(Exception e){
+	            e.printStackTrace();
+	        }
+	    }
 
 }

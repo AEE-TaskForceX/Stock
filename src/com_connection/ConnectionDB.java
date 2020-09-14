@@ -106,7 +106,7 @@ public class ConnectionDB {
              
              while (rs.next()){   
                  
-                 y= rs.getString("id_commande");       
+                 y= rs.getString("id_client");       
              }
          } catch (Exception e) {
         	 e.printStackTrace();

@@ -180,10 +180,7 @@ public class ClientController  implements Initializable {
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
     		table.getItems().removeAll(data);
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
     		while (rs.next())
     		{
     			data.add(new Client(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) ,  rs.getString(6) ) );

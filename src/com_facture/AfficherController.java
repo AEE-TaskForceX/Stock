@@ -18,7 +18,12 @@ import javax.mail.internet.MimeMultipart;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import projet.bin.Facture;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -97,8 +102,10 @@ public class AfficherController implements Initializable {
 	    
 	    @FXML
 	    void envoyer(ActionEvent event) {
-	  String to=com_connection.ConnectionDB.getMail();
-	  String msg="Bonjour monsieur, Voici votre facture";
+	    	String k=com_connection.ConnectionDB.getMail();
+	    	System.out.println(k);
+	  String to=k;
+	  String msg="Bonjour monsieur,Bienvenue Chez DIZZY SQUAD STORE, Voici votre facture";
 	   	sendFromGMail(to , msg);
 				
 	    }
@@ -148,7 +155,11 @@ public class AfficherController implements Initializable {
 	    				msg.setContent(emailContent);
 	    				
 	    				Transport.send(msg);
-	    				System.out.println("Sent message");
+	    				Alert alert = new Alert(AlertType.INFORMATION);
+	    		    	alert.setTitle("Envoie de facture");
+	    		    	alert.setHeaderText("Information");
+	    		    	alert.setContentText("Facture bien envoyée à "+to);
+	    		    	alert.showAndWait();
 	    			} catch (MessagingException e) {
 	    				e.printStackTrace();
 	    			} catch (IOException e) {
@@ -217,5 +228,10 @@ public class AfficherController implements Initializable {
 		// TODO Auto-generated method stub
 		
 	}
+	@FXML
+	 public void handleButtonAction(MouseEvent event) {
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+        appStage.close();
+    }
 }

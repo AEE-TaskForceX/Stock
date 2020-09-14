@@ -46,10 +46,8 @@ public class VendeurController {
         stage1.setScene(scene);
         stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-<<<<<<< HEAD
         stage1.show();
-=======
-        stage.show();
+        stage1.show();
         scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -60,11 +58,10 @@ public class VendeurController {
 		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				stage.setX(event.getScreenX() - xOffset);
-				stage.setY(event.getScreenY() - yOffset);
+				stage1.setX(event.getScreenX() - xOffset);
+				stage1.setY(event.getScreenY() - yOffset);
 			}
 		});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
         
 	}
 	@FXML
@@ -77,10 +74,8 @@ public class VendeurController {
             stage1.setScene(scene);
             stage1.initStyle(StageStyle.TRANSPARENT);
             scene.setFill(Color.TRANSPARENT);
-<<<<<<< HEAD
             stage1.show();
-=======
-            stage.show();
+            stage1.show();
             scene.setOnMousePressed(new EventHandler<MouseEvent>() {
     			@Override
     			public void handle(MouseEvent event) {
@@ -91,11 +86,10 @@ public class VendeurController {
     		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
     			@Override
     			public void handle(MouseEvent event) {
-    				stage.setX(event.getScreenX() - xOffset);
-    				stage.setY(event.getScreenY() - yOffset);
+    				stage1.setX(event.getScreenX() - xOffset);
+    				stage1.setY(event.getScreenY() - yOffset);
     			}
     		});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 	}
 
 @FXML
@@ -109,10 +103,8 @@ private void clients(ActionEvent event) throws IOException {
         stage1.setScene(scene);
         stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-<<<<<<< HEAD
         stage1.show();
-=======
-        stage.show();
+        stage1.show();
         scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -123,11 +115,10 @@ private void clients(ActionEvent event) throws IOException {
 		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				stage.setX(event.getScreenX() - xOffset);
-				stage.setY(event.getScreenY() - yOffset);
+				stage1.setX(event.getScreenX() - xOffset);
+				stage1.setY(event.getScreenY() - yOffset);
 			}
 		});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 }
 
 @FXML
@@ -141,10 +132,8 @@ private void commandes(ActionEvent event) throws IOException {
         stage1.setScene(scene);
         stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-<<<<<<< HEAD
         stage1.show();
-=======
-        stage.show();
+        stage1.show();
         scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -155,11 +144,10 @@ private void commandes(ActionEvent event) throws IOException {
 		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				stage.setX(event.getScreenX() - xOffset);
-				stage.setY(event.getScreenY() - yOffset);
+				stage1.setX(event.getScreenX() - xOffset);
+				stage1.setY(event.getScreenY() - yOffset);
 			}
 		});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 }
 @FXML
 private void factures(ActionEvent event) throws IOException {
@@ -173,10 +161,8 @@ private void factures(ActionEvent event) throws IOException {
         stage1.setScene(scene);
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-<<<<<<< HEAD
         stage1.show();
-=======
-        stage.show();
+        stage1.show();
         scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -187,11 +173,10 @@ private void factures(ActionEvent event) throws IOException {
 		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				stage.setX(event.getScreenX() - xOffset);
-				stage.setY(event.getScreenY() - yOffset);
+				stage1.setX(event.getScreenX() - xOffset);
+				stage1.setY(event.getScreenY() - yOffset);
 			}
 		});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 }
 @FXML
 private void fournisseur(ActionEvent event) throws IOException {
@@ -202,10 +187,8 @@ private void fournisseur(ActionEvent event) throws IOException {
         stage1.setScene(scene);
         stage1.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-<<<<<<< HEAD
         stage1.show();
-=======
-        stage.show();
+        stage1.show();
         scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -216,10 +199,9 @@ private void fournisseur(ActionEvent event) throws IOException {
 		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				stage.setX(event.getScreenX() - xOffset);
-				stage.setY(event.getScreenY() - yOffset);
+				stage1.setX(event.getScreenX() - xOffset);
+				stage1.setY(event.getScreenY() - yOffset);
 			}
 		});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 }
 }

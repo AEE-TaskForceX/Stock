@@ -49,17 +49,17 @@ public class AdminController {
 		
 			scene = new Scene(FXMLLoader.load(getClass().getResource("/com_adminsettings/AdminSettings.fxml")));
 		
-<<<<<<< HEAD
+
 			 stage1.setScene(scene);
 		        stage1.initStyle(StageStyle.TRANSPARENT);
 		        scene.setFill(Color.TRANSPARENT);
 		        stage1.show();
-=======
-        stage.setScene(scene);
+
+        stage1.setScene(scene);
        // stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
        
-       stage.show();
+       stage1.show();
        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -70,11 +70,10 @@ public class AdminController {
 		scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				stage.setX(event.getScreenX() - xOffset);
-				stage.setY(event.getScreenY() - yOffset);
+				stage1.setX(event.getScreenX() - xOffset);
+				stage1.setY(event.getScreenY() - yOffset);
 			}
 		});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
         
 	}
 	@FXML
@@ -87,17 +86,15 @@ public class AdminController {
 			
 				scene = new Scene(FXMLLoader.load(getClass().getResource("/comvendeur/VenDeur.fxml")));
 			
-<<<<<<< HEAD
 				 stage1.setScene(scene);
 			        stage1.initStyle(StageStyle.TRANSPARENT);
 			        scene.setFill(Color.TRANSPARENT);
 			        stage1.show();
-=======
-            stage.setScene(scene);
+            stage1.setScene(scene);
            // stage.initStyle(StageStyle.TRANSPARENT);
             scene.setFill(Color.TRANSPARENT);
            
-           stage.show();
+           stage1.show();
            scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent event) {
@@ -108,11 +105,10 @@ public class AdminController {
 			scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent event) {
-					stage.setX(event.getScreenX() - xOffset);
-					stage.setY(event.getScreenY() - yOffset);
+					stage1.setX(event.getScreenX() - xOffset);
+					stage1.setY(event.getScreenY() - yOffset);
 				}
 			});
->>>>>>> branch 'master' of https://github.com/THEDEATHSQUAD/Gestionstock.git
 	}
 
 }
