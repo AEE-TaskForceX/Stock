@@ -119,6 +119,7 @@ public class CategorieController  implements Initializable{
 		alert.setHeaderText(null);
 			alert.setContentText("La catégorie n'a pas été modifiée");
 			alert.showAndWait();
+			e.printStackTrace();
 		}
 	}
 	
@@ -157,6 +158,8 @@ public class CategorieController  implements Initializable{
 				alert.setHeaderText(null);
 					alert.setContentText("la catégorie n'a pas été ajoutée");
 					alert.showAndWait();
+					e.printStackTrace();
+
 				}
 		    }
 		
@@ -222,7 +225,7 @@ public class CategorieController  implements Initializable{
 		
 		Connection con= ConnectionDB.conDB();
     	PreparedStatement st = null;
-    	String rqt ="delete from categorie where com_cat=?";
+    	String rqt ="delete from categorie where Nom_cat=?";
     	try {
     		st = con.prepareStatement(rqt);
     		st.setString(1, i);
@@ -242,6 +245,8 @@ public class CategorieController  implements Initializable{
 			alert.setHeaderText(null);
 			alert.setContentText("ERREUR! cette catégorie concerne un ou de plusieurs articles");
 			alert.showAndWait();
+			e.printStackTrace();
+
     	}
 		
 	}

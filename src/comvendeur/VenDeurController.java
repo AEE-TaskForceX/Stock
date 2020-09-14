@@ -163,7 +163,7 @@ public class VenDeurController implements Initializable {
 		try {
 			
     		Connection conn = ConnectionDB.conDB();
-    		String sql = "SELECT * FROM `vendeur`" ;
+    		String sql = "SELECT * FROM vendeur " ;
     		PreparedStatement stm  = conn.prepareStatement(sql);
     		ResultSet rs = stm.executeQuery();
     		table.getItems().removeAll(data);

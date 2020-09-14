@@ -149,7 +149,7 @@ public class FactureController implements Initializable {
 	    @FXML
 	    private ComboBox<Double> tva;
 	    private String methode[]={"Espèces","Carte bancaire","Paypal","Autre"};
-	    private Double tax[]={0.0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40};
+	    private Double tax[]={0.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0};
 
 
 		
@@ -411,7 +411,7 @@ public class FactureController implements Initializable {
 		      double price = Double.parseDouble(PRIX);
 		      String logid = LoginController.getlogid();
 		      
-		      double Total= (price*quantity) +(price*quantity)/TVA;
+		      double Total= (price*quantity) +((price*quantity)*(TVA/100));
 	    	System.out.println("total"+Total);
 		      
 	    	Facture cl = new Facture();
@@ -522,7 +522,7 @@ public class FactureController implements Initializable {
 		      double price = Double.parseDouble(PRIX);
 		      String logid = LoginController.getlogid();
 		      
-		      double Total= (price*quantity) +(price*quantity)/TVA;
+		      double Total= (price*quantity) +((price*quantity)*(TVA/100));
 	    	System.out.println("total"+Total);
 		      
 	    	Facture cl = new Facture();

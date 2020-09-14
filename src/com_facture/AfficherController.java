@@ -68,6 +68,9 @@ public class AfficherController implements Initializable {
 	@FXML
 	private Label l14;
 	 static String idcommande;
+	 static String name;
+	 static String famname;
+
 	private static Facture Selectedfac;
 	public void initData(Facture fac){
 	        Selectedfac=fac;
@@ -76,7 +79,9 @@ public class AfficherController implements Initializable {
 	        idcommande=Selectedfac.getIdcom();
 	        l3.setText(Selectedfac.getIdvend());
 	        l4.setText(Selectedfac.getNomcli());
+	        famname=Selectedfac.getNomcli();
 	        l5.setText(Selectedfac.getPrenomcli());
+	        name=Selectedfac.getNomcli();
 	        l6.setText(Selectedfac.getDatefact());
 	        l7.setText(Selectedfac.getTel());
 	        l8.setText(Selectedfac.getRef());
@@ -158,13 +163,20 @@ public class AfficherController implements Initializable {
 	    				Alert alert = new Alert(AlertType.INFORMATION);
 	    		    	alert.setTitle("Envoie de facture");
 	    		    	alert.setHeaderText("Information");
-	    		    	alert.setContentText("Facture bien envoyée à "+to);
+	    		    	alert.setContentText("Facture bien envoyée à "+famname+" " +name+ "\n Son mail: "+to);
 	    		    	alert.showAndWait();
 	    			} catch (MessagingException e) {
+	    				Alert alert = new Alert (AlertType.ERROR);
+	    		          alert.setTitle("Envoie de facture");
+	    		          alert.setHeaderText("ERREUR");
+	    		          alert.setContentText("Génere d'abord la facture PDF");
+	    		          alert.showAndWait();
 	    				e.printStackTrace();
 	    			} catch (IOException e) {
 	    				// TODO Auto-generated catch block
+	    			
 	    				e.printStackTrace();
+	    				 
 	    			}
 	}
 	    
