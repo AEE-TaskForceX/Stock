@@ -66,7 +66,7 @@
                   </TextField>
                   <ComboBox fx:id="mdp" layoutX="57.0" layoutY="417.0" prefHeight="37.0" prefWidth="279.0" promptText="Méthode de Paiement" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
                   <ComboBox fx:id="tva" layoutX="57.0" layoutY="454.0" prefHeight="37.0" prefWidth="279.0" promptText="TVA" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: #8A2BE2;" stylesheets="@../application/application.css" />
-                  <Button layoutX="254.0" layoutY="550.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Supprimer" textFill="WHITE">
+                  <Button layoutX="254.0" layoutY="550.0" mnemonicParsing="false" onAction="#delete" prefHeight="52.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Supprimer" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
@@ -74,7 +74,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="147.0" layoutY="550.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Modifier" textFill="WHITE">
+                  <Button layoutX="147.0" layoutY="550.0" mnemonicParsing="false" onAction="#update" prefHeight="52.0" prefWidth="101.0" style="-fx-background-radius: 35; -fx-border-radius: 35;" stylesheets="@../com_commande/buttonCom.css" text="Modifier" textFill="WHITE">
                      <effect>
                         <DropShadow height="43.25" radius="23.7175" spread="0.35" width="53.62" />
                      </effect>
