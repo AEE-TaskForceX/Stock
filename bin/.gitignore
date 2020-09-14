@@ -1,7 +1,9 @@
-/com_facture/
-/admin/
-/application/
-/com_client/
-/comvendeur/
-/vendeur/
+/itextpdf-5.1.0.jar
+/javax.mail.jar
+/com_commande/
 /com_connection/
+/com_facture/
+/com_fournisseur/
+/comvendeur/
+/projet/
+/vendeur/
