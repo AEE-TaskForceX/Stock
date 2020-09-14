@@ -95,12 +95,11 @@
                   <TableView fx:id="table" layoutX="118.0" layoutY="103.0" prefHeight="265.0" prefWidth="564.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #D3D3D3; -fx-background-radius: 30px; -fx-border-radius: 30;" stylesheets="@../com_client/Table.css">
                      <columns>
                         <TableColumn fx:id="idcolumn" prefWidth="68.0" text="ID" />
-                        <TableColumn fx:id="nomcolumn" prefWidth="79.0" text="NOM" />
-                        <TableColumn fx:id="prenomcolumn" prefWidth="84.0" text="PRENOM" />
-                        <TableColumn fx:id="telecolumn" prefWidth="90.0" text="TELEPHONE" />
-                        <TableColumn fx:id="ventescolumn" prefWidth="75.0" text="Ventes" />
-                        <TableColumn fx:id="idlogcolumn" prefWidth="77.0" text="ID LOGIN" />
-                        <TableColumn fx:id="mdpcolumn" prefWidth="89.0" text="MOT DE PASSE" />
+                        <TableColumn fx:id="nomcolumn" prefWidth="93.0" text="NOM" />
+                        <TableColumn fx:id="prenomcolumn" prefWidth="91.0" text="PRENOM" />
+                        <TableColumn fx:id="telecolumn" prefWidth="103.0" text="TELEPHONE" />
+                        <TableColumn fx:id="idlogcolumn" prefWidth="99.0" text="ID LOGIN" />
+                        <TableColumn fx:id="mdpcolumn" prefWidth="108.0" text="MOT DE PASSE" />
                      </columns>
                      <effect>
                         <DropShadow height="77.34" radius="38.17" spread="0.31" width="77.34" />

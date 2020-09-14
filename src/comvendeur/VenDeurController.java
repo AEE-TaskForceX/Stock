@@ -65,7 +65,6 @@ public class VenDeurController implements Initializable {
 	private TableColumn<Vendeur, String> telecolumn;
 	@FXML
 	private TableColumn<Vendeur, String> mdpcolumn;
-	private TableColumn<Vendeur, String> ventescolumn;
 
 	
 	@FXML
@@ -169,7 +168,7 @@ public class VenDeurController implements Initializable {
     		table.getItems().removeAll(data);
     		while (rs.next())
     		{
-    			data.add(new Vendeur(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getDouble(5) ,  rs.getString(6),rs.getString(7) ) );
+				data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
     			
     		}
     		conn.close();
@@ -183,7 +182,6 @@ public class VenDeurController implements Initializable {
     	nomcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("nom"));
     	prenomcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("prenom"));
     	idlogcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("loginid"));
-    	ventescolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("ventes"));
     	telecolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("tel"));
     	mdpcolumn.setCellValueFactory(new PropertyValueFactory<Vendeur, String>("mdp"));
     	
@@ -208,7 +206,7 @@ public class VenDeurController implements Initializable {
     		stm.setString(3, cl.getTel());
     		stm.setString(4, cl.getLoginid());
     		stm.setString(5, cl.getMdp());
-    		stm.setString(5, idd);
+    		stm.setString(6, idd);
     		
     		
     		 d = stm.executeUpdate();
@@ -411,7 +409,7 @@ private void loadDataDB() {
 		PreparedStatement pst=conn.prepareStatement("Select * from vendeur");
 		ResultSet rs=pst.executeQuery();
 		while(rs.next()) {
-			data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDouble(5),rs.getString(6),rs.getString(7)));
+			data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
 		}
 	}
 	catch(SQLException ex){
@@ -433,7 +431,7 @@ private void search() {
 				PreparedStatement pst=conn.prepareStatement(sql);
 				ResultSet rs=pst.executeQuery();
 				while(rs.next()) {
-					data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDouble(5),rs.getString(6),rs.getString(7)));
+					data.add(new Vendeur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
 				}
 				table.setItems(data);
 			}catch(SQLException ex) {
